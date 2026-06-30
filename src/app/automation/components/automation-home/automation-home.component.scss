@@ -6,203 +6,400 @@ $text-dark: #0f172a;
 $text-muted: #64748b;
 $white: #ffffff;
 
-// PREMIUM SOLUTION PAGE STYLES
-section.block {
-    padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 3vw, 3rem);
+// SHARED SECTION CONTAINER
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 3rem);
+}
+
+.section-header {
+    margin-bottom: 3rem;
     
-    > h2 {
+    .section-tag {
+        display: inline-block;
+        padding: 0.5em 1.2em;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.06));
+        color: $primary-color;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    h2 {
         font-size: clamp(1.75rem, 4vw, 2.5rem);
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
         color: $text-dark;
-        margin-bottom: 2rem;
         letter-spacing: -0.02em;
         line-height: 1.2;
+        margin: 0;
+    }
+}
+
+// HERO SECTION STYLES
+section.hero-section {
+    padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 3vw, 3rem);
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.03) 0%, rgba(0, 184, 255, 0.02) 100%);
+    
+    .hero-content {
+        max-width: 1400px;
+        margin: 0 auto;
     }
     
-    &.why {
-        background: linear-gradient(180deg, $white 0%, #f0f4ff 100%);
+    .hero-cta {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.95em 2.5em;
+        background: linear-gradient(135deg, $primary-color 0%, #1e40af 100%);
+        color: $white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
         
-        > ul.strong-point {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            
-            > li {
-                background: $white;
-                padding: 2rem;
-                border-radius: 16px;
-                border: 1px solid rgba(37, 99, 235, 0.08);
-                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                
-                &:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
-                    border-color: rgba(37, 99, 235, 0.15);
-                }
-                
-                > h3 {
-                    display: block;
-                    font-size: 1.25rem;
-                    font-weight: 700;
-                    color: $primary-color;
-                    margin-bottom: 1rem;
-                    font-family: 'Poppins', sans-serif;
-                    letter-spacing: 0;
-                    
-                    &::after {
-                        content: "";
-                    }
-                }
-                
-                color: $text-muted;
-                font-size: 0.95rem;
-                line-height: 1.7;
-            }
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+        }
+    }
+}
+
+// WHY CHOOSE SECTION
+section.why-choose-section {
+    padding: clamp(4rem, 10vw, 7rem) 0;
+    background: linear-gradient(180deg, $white 0%, #f0f4ff 100%);
+    
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
     }
     
-    &.products {
+    .benefit-card {
         background: $white;
+        padding: 2rem;
+        border-radius: 16px;
+        border: 1px solid rgba(37, 99, 235, 0.08);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: fade-in-up 0.6s ease-out;
         
-        > div.automation-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
+            border-color: rgba(37, 99, 235, 0.15);
             
-            @media (max-width: 1154px) {
-                grid-template-columns: 1fr 1fr;
+            .benefit-icon {
+                background: linear-gradient(135deg, $primary-color, $secondary-color);
+                color: $white;
+                transform: scale(1.1);
+            }
+        }
+        
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            color: $primary-color;
+            margin-bottom: 1.2rem;
+            transition: all 0.4s ease;
+            
+            svg {
+                width: 28px;
+                height: 28px;
+                stroke-width: 1.5;
+            }
+        }
+        
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin-bottom: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        p {
+            color: $text-muted;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    }
+}
+
+// PRODUCTS SECTION
+section.products-section {
+    padding: clamp(4rem, 10vw, 7rem) 0;
+    background: $white;
+    
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .product-card {
+        border-radius: 16px !important;
+        border: 1px solid rgba(37, 99, 235, 0.1) !important;
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow: hidden !important;
+        animation: fade-in-up 0.6s ease-out;
+        
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15) !important;
+            border-color: rgba(37, 99, 235, 0.2) !important;
+            
+            .product-image {
+                transform: scale(1.05);
+            }
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(0, 184, 255, 0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease;
+            position: relative;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
             }
             
-            @media (max-width: 774px) {
-                grid-template-columns: 1fr;
+            &.security {
+                background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             }
             
-            mat-card {
-                border-radius: 16px !important;
-                border: 1px solid rgba(37, 99, 235, 0.1) !important;
-                box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06) !important;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-                overflow: hidden !important;
+            &.gate {
+                background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            }
+            
+            &.locks {
+                background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            }
+            
+            &.lighting {
+                background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            }
+            
+            &.curtains {
+                background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            }
+        }
+        
+        mat-card-header {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(0, 184, 255, 0.05));
+            padding: 1.5rem !important;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+            
+            mat-card-title h3 {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: $primary-color;
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+            }
+        }
+        
+        mat-card-content {
+            padding: 1.5rem !important;
+            
+            ul.card-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
                 
-                &:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15) !important;
-                    border-color: rgba(37, 99, 235, 0.2) !important;
-                }
-                
-                mat-card-header {
-                    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(0, 184, 255, 0.05));
-                    padding: 1.5rem !important;
-                    margin-bottom: 1rem !important;
-                    border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+                li {
+                    color: $text-muted;
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                    margin-bottom: 1rem;
+                    padding-left: 1.5rem;
+                    position: relative;
                     
-                    mat-card-title {
-                        h3 {
-                            font-size: 1.1rem;
-                            font-weight: 700;
-                            color: $primary-color;
-                            font-family: 'Poppins', sans-serif;
-                            margin: 0;
-                        }
+                    &::before {
+                        content: "✓";
+                        position: absolute;
+                        left: 0;
+                        color: $secondary-color;
+                        font-weight: bold;
+                        font-size: 1.1rem;
                     }
-                }
-                
-                mat-card-content {
-                    padding: 1.5rem !important;
                     
-                    ul.card-list {
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
-                        
-                        > li {
-                            color: $text-muted;
-                            font-size: 0.95rem;
-                            line-height: 1.6;
-                            margin-bottom: 1rem;
-                            padding-left: 1.5rem;
-                            position: relative;
-                            
-                            &::before {
-                                content: "✓";
-                                position: absolute;
-                                left: 0;
-                                color: $secondary-color;
-                                font-weight: bold;
-                            }
-                            
-                            &:last-child {
-                                margin-bottom: 0;
-                            }
-                        }
+                    &:last-child {
+                        margin-bottom: 0;
                     }
                 }
             }
         }
+    }
+    
+    .products-cta {
+        text-align: center;
+        margin-top: 3rem;
         
-        > a.highlight-text {
+        .cta-button {
             display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             background: linear-gradient(135deg, $primary-color 0%, #1e40af 100%);
             color: $white;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             transition: all 0.35s ease;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
             
             &:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+                box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
             }
         }
     }
+}
+
+// HOW IT WORKS SECTION
+section.how-it-works-section {
+    padding: clamp(4rem, 10vw, 7rem) 0;
+    background: linear-gradient(180deg, $light-bg 0%, $white 100%);
     
-    &.working {
-        background: linear-gradient(180deg, $light-bg 0%, $white 100%);
+    .process-timeline {
+        position: relative;
+        padding: 2rem 0;
+    }
+    
+    .timeline-line {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.3), transparent);
         
-        > ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            
-            > li {
-                background: $white;
-                padding: 1.5rem;
-                border-radius: 12px;
-                border-left: 4px solid $primary-color;
-                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
-                transition: all 0.3s ease;
-                
-                &:hover {
-                    transform: translateX(8px);
-                    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
-                }
-                
-                > strong {
-                    display: block;
-                    color: $primary-color;
-                    font-family: 'Poppins', sans-serif;
-                    font-size: 1rem;
-                    margin-bottom: 0.5rem;
-                    
-                    &::after {
-                        content: "";
-                    }
-                }
-                
-                color: $text-muted;
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
+        @media (max-width: 968px) {
+            left: 20px;
         }
+        
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+    
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+        position: relative;
+        z-index: 1;
+        
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+    
+    .process-step {
+        animation: fade-in-up 0.6s ease-out;
+        animation-delay: calc(var(--step-delay, 0) * 0.15s);
+        animation-fill-mode: both;
+        
+        display: flex;
+        gap: 1.5rem;
+        
+        @media (max-width: 968px) {
+            gap: 2rem;
+        }
+    }
+    
+    .step-marker {
+        flex-shrink: 0;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .step-number {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        color: $white;
+        border-radius: 50%;
+        font-size: 1.25rem;
+        font-weight: 800;
+        font-family: 'Poppins', sans-serif;
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+        transition: all 0.3s ease;
+        
+        @media (max-width: 968px) {
+            width: 48px;
+            height: 48px;
+            font-size: 1rem;
+        }
+    }
+    
+    .step-content {
+        flex: 1;
+        
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin: 0 0 0.5rem 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        p {
+            color: $text-muted;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    }
+}
+
+// ANIMATIONS
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
