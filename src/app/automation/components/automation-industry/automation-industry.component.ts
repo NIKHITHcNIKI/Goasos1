@@ -87,4 +87,17 @@ export class AutomationIndustryComponent implements OnInit, OnDestroy {
   public CaptureClicks(cta: string): void {
     this.analytics.HomeCtaEvent(cta);
   }
+
+  public getServiceImage(index: number): string {
+    const images = [
+      'url(/images/automation/fleet-management-vehicles.png)',
+      'url(/images/automation/machine-automation-equipment.png)',
+      'url(/images/automation/cold-storage-monitoring.png)',
+      'url(/images/automation/asset-tracking-system.png)',
+      'url(/images/automation/emergency-response-center.png)',
+      'url(/images/automation/power-substation-monitoring.png)',
+      'url(/images/automation/solar-farm-renewable-energy.png)'
+    ];
+    return images[index % images.length];
+  }
 }

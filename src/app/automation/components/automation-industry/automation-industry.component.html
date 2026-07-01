@@ -1,4 +1,6 @@
 <app-hero [showCLient]="true"
+    [premium]="true"
+    [backgroundImage]="'/images/automation/hero-industrial-factory.png'"
     p="We offer a comprehensive suite of Industrial Automation Solutions designed to improve operational efficiency, enhance safety and deliver smart control across your facilities. Our systems are fully integrated with IoT, cloud and real-time analytics —available in Bangalore, Bhubaneswar & Cuttack."
     h1="Industrial Automation Solutions for Smart, Scalable Growth | Bangalore, Bhubaneswar & Cuttack">
     <div class="actions" actions>
@@ -6,23 +8,40 @@
             [href]="cont.PopulateContactLocation()">Schedule Free Consultation&nbsp;&nbsp;&rarr;</a>
     </div>
 </app-hero>
-<section class="content">
-    <h2>Comprehensive Industrial Automation Services</h2>
-    <p>At GOAS, we bring together IoT, AI and cloud technologies to deliver industry-specific solutions with measurable
-        impact. Here are some of the key benefits of Industrial automation:</p>
-    <ul class="card-list">
-        <li>Minimize downtime & manual errors</li>
-        <li>Maximize output & energy efficiency</li>
-        <li>Improve worker safety & real-time monitoring</li>
-        <li>Integrate predictive maintenance</li>
-        <li>Centralize system control & data visibility</li>
-    </ul>
+<section class="content-split">
+    <div class="content-text">
+        <h2>Comprehensive Industrial Automation Services</h2>
+        <p>At GOAS, we bring together IoT, AI and cloud technologies to deliver industry-specific solutions with measurable
+            impact. Here are some of the key benefits of Industrial automation:</p>
+        <ul class="card-list">
+            <li>Minimize downtime & manual errors</li>
+            <li>Maximize output & energy efficiency</li>
+            <li>Improve worker safety & real-time monitoring</li>
+            <li>Integrate predictive maintenance</li>
+            <li>Centralize system control & data visibility</li>
+        </ul>
+    </div>
+    <div class="content-images">
+        <div class="image-card">
+            <img loading="lazy" src="/images/automation/industrial-factory-floor.png" alt="Smart factory floor with automated equipment">
+        </div>
+        <div class="image-card">
+            <img loading="lazy" src="/images/automation/plc-control-workspace.png" alt="PLC programming workspace">
+        </div>
+        <div class="image-card">
+            <img loading="lazy" src="/images/automation/iot-smart-sensors.png" alt="IoT sensors on manufacturing equipment">
+        </div>
+    </div>
 </section>
 <section class="types">
     <h2>Our Industrial Automation Solutions</h2>
-    <div class="type" *ngFor="let ty of content">
-        <div class="icon"><img loading="lazy" [src]="'/images/automation/industry/'+ helper.GetFileName(ty.h3)+'.png'"
-                [alt]="ty.h3">
+    <div class="type" *ngFor="let ty of content; let i = index">
+        <div class="card-image" [style.background-image]="getServiceImage(i)">
+            <div class="card-overlay"></div>
+            <div class="icon"><img loading="lazy" [src]="'/images/automation/industry/'+ helper.GetFileName(ty.h3)+'.png'"
+                    [alt]="ty.h3">
+            </div>
+            <div class="badge">{{ty.h3}}</div>
         </div>
         <div class="content">
             <h3>{{ty.h3}}</h3>
