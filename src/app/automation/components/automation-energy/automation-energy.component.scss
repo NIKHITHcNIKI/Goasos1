@@ -1,90 +1,179 @@
 $primary-color: #2563eb;
 $secondary-color: #00b8ff;
+$accent-green: #10B981;
+$accent-yellow: #FBBF24;
 $light-bg: #f8fafc;
 $text-dark: #0f172a;
 $text-muted: #64748b;
 $white: #ffffff;
 
+// ANIMATIONS
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 40px rgba(37, 99, 235, 0.6);
+    }
+}
+
 section {
     padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 3vw, 3rem);
-    background: alternating;
+    position: relative;
     
-    &:nth-of-type(odd) {
+    &:nth-of-type(1) {
         background: linear-gradient(180deg, $white 0%, #f0f4ff 100%);
     }
     
-    &:nth-of-type(even) {
+    &:nth-of-type(2) {
+        background: linear-gradient(180deg, $white 0%, #f0f9ff 100%);
+    }
+    
+    &:nth-of-type(3) {
+        background: linear-gradient(180deg, $light-bg 0%, #e0f2fe 100%);
+    }
+    
+    &:nth-of-type(4),
+    &:nth-of-type(5),
+    &:nth-of-type(6) {
         background: $white;
     }
-    
-    > h2 {
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        color: $text-dark;
-        margin-bottom: 2rem;
-        letter-spacing: -0.02em;
+}
+
+// PRODUCTS SECTION
+.products {
+    .section-with-tag {
+        animation: slideInLeft 0.8s ease-out;
     }
     
-    > div {
-        max-width: 900px;
-        background: transparent;
-        padding: 0;
+    .solar-solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
         
-        > h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: $primary-color;
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
+    }
+    
+    .solution-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: fadeInUp 0.8s ease-out forwards;
         
-        > p {
-            color: $text-muted;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        > ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            
-            > li {
-                color: $text-muted;
-                font-size: 0.9rem;
-                line-height: 1.6;
-                margin-bottom: 1rem;
-                padding-left: 1.5rem;
-                position: relative;
-                
-                &::before {
-                    content: "✓";
-                    position: absolute;
-                    left: 0;
-                    color: $secondary-color;
-                    font-weight: bold;
-                }
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.15}s;
             }
         }
         
-        > a {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.9em 2rem;
-            background: linear-gradient(135deg, $primary-color 0%, #1e40af 100%);
-            color: $white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.35s ease;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        &:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 48px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.2);
             
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+            .card-image img {
+                transform: scale(1.08);
             }
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+        
+        .card-content {
+            padding: 2.5rem;
+            
+            h3 {
+                font-size: 1.35rem;
+                font-weight: 700;
+                color: $text-dark;
+                margin-bottom: 1.5rem;
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            .benefit-list {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+// BENEFITS SECTION
+.benefits {
+    .benefits-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 3rem;
+        
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+    }
+    
+    .benefits-column {
+        animation: slideInLeft 0.8s ease-out;
+        
+        .benefit-list {
+            li {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+    
+    .benefits-image {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     }
 }
