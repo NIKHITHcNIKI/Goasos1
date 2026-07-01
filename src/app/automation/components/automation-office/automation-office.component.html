@@ -1,104 +1,138 @@
 <app-hero [showCLient]="true"
     p="Boost your business productivity with our advanced office automation solutions. From smart lighting and access control to AI-powered systems—available in Bengaluru, Bhubaneswar and Cuttack."
-    h1="Smart Office Automation Solutions That Empower Modern Workspaces | Bangalore, Bhubaneswar & Cuttack">
+    h1="Smart Office Automation Solutions That Empower Modern Workspaces | Bangalore, Bhubaneswar & Cuttack"
+    [heroImage]="'/images/office/hero-office.png'">
     <div class="actions" actions>
-        <a class="pri" (click)="CaptureClicks('office_automation_hero')" [href]="cont.PopulateContactLocation()">
+        <a class="pri hero-cta-primary" (click)="CaptureClicks('office_automation_hero')" [href]="cont.PopulateContactLocation()">
             Request a Free Consultation&nbsp;&nbsp;&rarr;</a>
+        <a class="sec hero-cta-secondary" href="#solutions">Explore Solutions →</a>
     </div>
 </app-hero>
-<section class="dough">
-    <h2>Why Automate Your Office?</h2>
-    <p>Businesses that implement office automation solutions report:</p>
-    <div class="graph">
-        <div *ngFor="let chart of charts" class="chart">
-            <h3>{{ chart.label }}</h3>
-            <canvas [id]="chart.id" width="200" height="200"></canvas>
+<section class="statistics-section" id="solutions">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Performance Benefits</span>
+            <h2>Why Automate Your Office?</h2>
+            <p>Businesses that implement office automation solutions report:</p>
+        </div>
+
+        <div class="stats-grid">
+            <div *ngFor="let chart of charts" class="stat-card">
+                <div class="stat-visual">
+                    <canvas [id]="chart.id" width="200" height="200"></canvas>
+                </div>
+                <div class="stat-content">
+                    <p>{{ chart.label }}</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="section-footer">Our tailored office automation systems integrate seamlessly with your existing infrastructure to create a smarter, more efficient workplace.</p>
+    </div>
+</section>
+<section class="solutions-section">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Our Solutions</span>
+            <h2>Our Office Automation Solutions</h2>
+            <p>Our smart office solutions are designed to improve security, boost efficiency, and reduce operational overhead. Here's what we bring to your workplace:</p>
+        </div>
+
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-image">
+                    <img src="/images/office/timesheet-automation.png" alt="Timesheet Automation - Biometric attendance system">
+                </div>
+                <mat-card class="solution-content-card">
+                    <mat-card-header class="card-headers">
+                        <mat-card-title><h3>Timesheet Automation</h3></mat-card-title>
+                        <mat-card-subtitle>Track attendance the smart way</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Streamline attendance tracking and eliminate manual time recording with our advanced timesheet automation solutions.</p>
+                        <ul class="card-list">
+                            <li>Multiple authentication options including access cards, fingerprint scanning, and facial recognition</li>
+                            <li>Seamless integration with payroll and HR systems</li>
+                            <li>Real-time attendance monitoring with customizable reports</li>
+                            <li>Leave management and overtime tracking capabilities</li>
+                            <li>Mobile compatibility for remote and field employees</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-image">
+                    <img src="/images/office/access-control.png" alt="Access Control Systems - Smart biometric security">
+                </div>
+                <mat-card class="solution-content-card">
+                    <mat-card-header class="card-headers">
+                        <mat-card-title><h3>Access Control Systems</h3></mat-card-title>
+                        <mat-card-subtitle>Secure access, simplified</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Protect your workplace by restricting unauthorized access while providing convenient entry for authorized personnel.</p>
+                        <ul class="card-list">
+                            <li>Multi-layered security with card-based access control integrated with biometric verification</li>
+                            <li>Advanced biometric options including facial recognition and fingerprint scanning</li>
+                            <li>Zone-based access restrictions for sensitive areas</li>
+                            <li>Time-scheduled access permissions for visitors and contractors</li>
+                            <li>Comprehensive audit trails of all entry and exit activities</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-image">
+                    <img src="/images/office/security-systems.png" alt="Office Security Systems - Comprehensive security infrastructure">
+                </div>
+                <mat-card class="solution-content-card">
+                    <mat-card-header class="card-headers">
+                        <mat-card-title><h3>Office Security Systems</h3></mat-card-title>
+                        <mat-card-subtitle>Complete security for modern offices</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Enhance your office security infrastructure with comprehensive protection solutions designed for modern workplaces.</p>
+                        <ul class="card-list">
+                            <li>Baggage scanners for thorough inspection of incoming items</li>
+                            <li>Door frame metal detectors for entry points</li>
+                            <li>Handheld metal detectors for security personnel</li>
+                            <li>Integrated alarm systems with immediate notification capabilities</li>
+                            <li>Emergency response protocols and panic button installation</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-image">
+                    <img src="/images/office/surveillance.png" alt="Video Surveillance Systems - CCTV monitoring dashboard">
+                </div>
+                <mat-card class="solution-content-card">
+                    <mat-card-header class="card-headers">
+                        <mat-card-title><h3>Video Surveillance Systems</h3></mat-card-title>
+                        <mat-card-subtitle>Monitor, record and protect</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Monitor and secure your entire office premises with high-definition video surveillance systems.</p>
+                        <ul class="card-list">
+                            <li>Flexible camera options including both network (IP) and analog systems</li>
+                            <li>High-definition recording with night vision capabilities</li>
+                            <li>Motion detection technology with intelligent alerts</li>
+                            <li>Remote monitoring via secure mobile and desktop applications</li>
+                            <li>Scalable storage solutions including cloud-based options</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="solutions-cta">
+            <p>Want to integrate multiple systems into one smart office dashboard? We can build a customized automation ecosystem for your business.</p>
+            <a [href]="cont.PopulateContactLocation()" class="cta-button">Talk to our experts today! →</a>
         </div>
     </div>
-
-    <p>Our tailored office automation systems integrate seamlessly with your existing infrastructure to create a
-        smarter, more efficient workplace.</p>
-</section>
-<section class="types">
-    <h2>Our Office Automation Solutions</h2>
-    <p>Our smart office solutions are designed to improve security, boost efficiency, and reduce operational overhead.
-        Here's what we bring to your workplace:</p>
-    <div class="cards">
-        <mat-card>
-            <mat-card-header class="card-headers">
-                <mat-card-title><h3>Timesheet Automation</h3></mat-card-title>
-                <mat-card-subtitle>Track attendance the smart way</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    Streamline attendance tracking and eliminate manual time recording with our advanced timesheet
-                    automation solutions.
-                </p>
-                <ul class="card-list">
-                    <li>Multiple authentication options including access cards, fingerprint scanning, and facial
-                        recognition</li>
-                    <li>Seamless integration with payroll and HR systems</li>
-                    <li>Real-time attendance monitoring with customizable reports</li>
-                    <li>Leave management and overtime tracking capabilities</li>
-                    <li>Mobile compatibility for remote and field employees</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header class="card-headers">
-                <mat-card-title><h3>Access Control Systems</h3></mat-card-title>
-                <mat-card-subtitle>Secure access, simplified</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Protect your workplace by restricting unauthorized access while providing convenient entry for
-                    authorized personnel.</p>
-                <ul class="card-list">
-                    <li>Multi-layered security with card-based access control integrated with biometric verification
-                    </li>
-                    <li>Advanced biometric options including facial recognition and fingerprint scanning</li>
-                    <li>Zone-based access restrictions for sensitive areas</li>
-                    <li>Time-scheduled access permissions for visitors and contractors</li>
-                    <li>Comprehensive audit trails of all entry and exit activities</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header class="card-headers">
-                <mat-card-title><h3>Office Security Systems</h3></mat-card-title>
-                <mat-card-subtitle>Complete security for modern offices</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Enhance your office security infrastructure with comprehensive protection solutions designed for
-                    modern workplaces.</p>
-                <ul class="card-list">
-                    <li>Baggage scanners for thorough inspection of incoming items</li>
-                    <li>Door frame metal detectors for entry points</li>
-                    <li>Handheld metal detectors for security personnel</li>
-                    <li>Integrated alarm systems with immediate notification capabilities</li>
-                    <li>Emergency response protocols and panic button installation</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header class="card-headers">
-                <mat-card-title><h3>Video Surveillance Systems</h3></mat-card-title>
-                <mat-card-subtitle>Monitor, record and protect</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Monitor and secure your entire office premises with high-definition video surveillance systems.</p>
-                <ul class="card-list">
-                    <li>Flexible camera options including both network (IP) and analog systems</li>
-                    <li>High-definition recording with night vision capabilities</li>
-                    <li>Motion detection technology with intelligent alerts</li>
-                    <li>Remote monitoring via secure mobile and desktop applications</li>
-                    <li>Scalable storage solutions including cloud-based options</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <p>Want to integrate multiple systems into one smart office dashboard? We can build a customized automation
-        ecosystem for your business.</p>
-    <a [href]="cont.PopulateContactLocation()" class="highlight-text">Talk to our experts today!</a>
 </section>
 <app-service-areas
 footer="Our local teams provide prompt service with an understanding of regional business needs and challenges."
