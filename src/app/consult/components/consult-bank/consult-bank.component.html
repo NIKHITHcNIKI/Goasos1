@@ -1,99 +1,127 @@
 <app-hero h1="Software Consulting Services | Banking, Capital Markets & AI Services - Bangalore, Bhubaneswar, Cuttack"
     p="Elevate your business with our expert software consulting services in Bangalore, Bhubaneswar, and Cuttack. Specialized in Banking & Financial Services, Capital Markets Solutions, and Data & AI Services."
-    [showCLient]="true">
+    [showCLient]="true"
+    [premium]="true"
+    [backgroundImage]="'images/consult-hero.png'">
     <div class="actions" actions>
         <a class="pri" (click)="CaptureClicks('consulting_hero')" [href]="cont.PopulateContactLocation()">Request Your
             Consultation&nbsp;&nbsp;&rarr;</a>
     </div>
 </app-hero>
 <section class="types">
-    <h2>What We Do</h2>
-    <div class="cards">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Banking & Financial Services Consulting</h3>
-                </mat-card-title>
-                <mat-card-subtitle>
-                    <p>Our team help banks and NBFCs embrace digital banking, improve customer experiences and
-                        ensure compliance with evolving regulations.</p>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Our expertise includes:</p>
-                <mat-card-footer>
-                    <ul class="card-list">
-                        <li>Core banking software transformation</li>
-                        <li>API-driven financial ecosystems</li>
-                        <li>Digital lending platforms</li>
-                        <li>Risk & compliance automation</li>
-                        <li>Mobile and internet banking architecture</li>
-                        <li>Secure payment gateway integrations</li>
-                    </ul>
-                </mat-card-footer>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Capital Markets & Wealth Management Solutions</h3>
-                </mat-card-title>
-                <mat-card-subtitle>
-                    <p>We support financial institutions, fintech startups, and trading firms in creating efficient and
-                        compliant platforms.</p>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Our capital markets solutions include:</p>
-                <mat-card-footer>
-                    <ul class="card-list">
-                        <li>Trading & investment platform design</li>
-                        <li>Portfolio management system consulting</li>
-                        <li>Real-time data analytics and dashboards</li>
-                        <li>Market data integration and security</li>
-                        <li>Compliance and reporting automation</li>
-                        <li>Blockchain for trade settlements</li>
-                    </ul>
-                </mat-card-footer>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Data & AI Services</h3>
-                </mat-card-title>
-                <mat-card-subtitle>
-                    <p>Data is the new currency. We help organizations unlock the full potential of AI, ML and analytics
-                        with scalable, intelligent solutions.</p>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Our Data & AI services include:</p>
-                <mat-card-footer>
-                    <ul class="card-list">
-                        <li>AI & ML strategy and implementation</li>
-                        <li>Big data analytics architecture</li>
-                        <li>Predictive modeling for business intelligence</li>
-                        <li>Computer vision and NLP applications</li>
-                        <li>AI-driven automation for finance and operations</li>
-                        <li>Cloud-based data transformation frameworks</li>
-                    </ul>
-                </mat-card-footer>
-            </mat-card-content>
-        </mat-card>
+    <div class="section-header">
+        <span class="section-tag">Services</span>
+        <h2>What We Do</h2>
     </div>
-    <a (click)="CaptureClicks('consulting_what')" [href]="cont.PopulateContactLocation()" class="highlight-text">Unlock
+    <div class="premium-cards-grid">
+        <div class="premium-card">
+            <div class="card-image">
+                <img src="images/consult-financial.png" alt="Banking and Financial Services Consulting" loading="lazy">
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3>Banking & Financial Services Consulting</h3>
+                <p>Our team help banks and NBFCs embrace digital banking, improve customer experiences and ensure compliance with evolving regulations.</p>
+                <p class="expertise-title">Our expertise includes:</p>
+                <ul class="expertise-list">
+                    <li>Core banking software transformation</li>
+                    <li>API-driven financial ecosystems</li>
+                    <li>Digital lending platforms</li>
+                    <li>Risk & compliance automation</li>
+                    <li>Mobile and internet banking architecture</li>
+                    <li>Secure payment gateway integrations</li>
+                </ul>
+            </div>
+        </div>
+        <div class="premium-card">
+            <div class="card-image">
+                <img src="images/consult-analytics.png" alt="Capital Markets and Wealth Management Solutions" loading="lazy">
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3>Capital Markets & Wealth Management Solutions</h3>
+                <p>We support financial institutions, fintech startups, and trading firms in creating efficient and compliant platforms.</p>
+                <p class="expertise-title">Our capital markets solutions include:</p>
+                <ul class="expertise-list">
+                    <li>Trading & investment platform design</li>
+                    <li>Portfolio management system consulting</li>
+                    <li>Real-time data analytics and dashboards</li>
+                    <li>Market data integration and security</li>
+                    <li>Compliance and reporting automation</li>
+                    <li>Blockchain for trade settlements</li>
+                </ul>
+            </div>
+        </div>
+        <div class="premium-card">
+            <div class="card-image">
+                <img src="images/consult-ai-dashboard.png" alt="Data and AI Services" loading="lazy">
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3>Data & AI Services</h3>
+                <p>Data is the new currency. We help organizations unlock the full potential of AI, ML and analytics with scalable, intelligent solutions.</p>
+                <p class="expertise-title">Our Data & AI services include:</p>
+                <ul class="expertise-list">
+                    <li>AI & ML strategy and implementation</li>
+                    <li>Big data analytics architecture</li>
+                    <li>Predictive modeling for business intelligence</li>
+                    <li>Computer vision and NLP applications</li>
+                    <li>AI-driven automation for finance and operations</li>
+                    <li>Cloud-based data transformation frameworks</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a (click)="CaptureClicks('consulting_what')" [href]="cont.PopulateContactLocation()" class="cta-button">Unlock
         Data-Driven Growth&nbsp;&nbsp;&rarr;</a>
 </section>
 <section class="process">
-    <h2>Our Process</h2>
-    <ul>
-        <li><strong>Strategic Consultation</strong>We assess your goals, infrastructure and challenges</li>
-        <li><strong>Solution Design</strong>We create a strategic roadmap for automation, AI or software enhancement.
-        </li>
-        <li><strong>Implementation</strong>End-to-end delivery with testing, documentation and training</li>
-        <li><strong>Optimization</strong>We ensure scalability, performance and continuous improvement</li>
-    </ul>
+    <div class="section-header">
+        <span class="section-tag">Methodology</span>
+        <h2>Our Process</h2>
+    </div>
+    <div class="process-grid">
+        <div class="process-step">
+            <div class="step-image">
+                <img src="images/consult-discovery.png" alt="Strategic Consultation Phase" loading="lazy">
+            </div>
+            <div class="step-content">
+                <div class="step-number">01</div>
+                <h3>Strategic Consultation</h3>
+                <p>We assess your goals, infrastructure and challenges to understand your unique business requirements and opportunities.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-image">
+                <img src="images/consult-design.png" alt="Solution Design Phase" loading="lazy">
+            </div>
+            <div class="step-content">
+                <div class="step-number">02</div>
+                <h3>Solution Design</h3>
+                <p>We create a strategic roadmap for automation, AI or software enhancement tailored to your specific needs and goals.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-image">
+                <img src="images/consult-development.png" alt="Implementation Phase" loading="lazy">
+            </div>
+            <div class="step-content">
+                <div class="step-number">03</div>
+                <h3>Implementation</h3>
+                <p>End-to-end delivery with comprehensive testing, documentation and training to ensure smooth adoption and success.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-image">
+                <img src="images/consult-support.png" alt="Optimization and Support Phase" loading="lazy">
+            </div>
+            <div class="step-content">
+                <div class="step-number">04</div>
+                <h3>Optimization & Support</h3>
+                <p>We ensure scalability, performance and continuous improvement through ongoing support and optimization services.</p>
+            </div>
+        </div>
+    </div>
 </section>
 <app-service-areas
     header="GOAS provides localized delivery and personalized support across India's key innovation hubs:"
