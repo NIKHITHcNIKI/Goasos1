@@ -94,25 +94,25 @@ export class MainHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   public projects: ProjectItem[] = [
-    { title: 'Industrial Power Integration', category: 'Power Systems', image: 'https://images.unsplash.com/photo-1473341304170-971dccb544ac?auto=format&fit=crop&w=800&h=600&q=80', location: 'Bangalore' },
-    { title: 'Smart Factory Automation', category: 'Industrial Automation', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=800&h=600&q=80', location: 'Bhubaneswar' },
-    { title: 'Solar Energy Deployment', category: 'Renewable Energy', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&h=600&q=80', location: 'Cuttack' },
-    { title: 'Electrical Panel Upgrade', category: 'Electrical Engineering', image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&h=600&q=80', location: 'Bangalore' },
-    { title: 'Security Surveillance Network', category: 'Security Systems', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa8?auto=format&fit=crop&w=800&h=600&q=80', location: 'Bhubaneswar' },
-    { title: 'Office Automation Suite', category: 'Smart Office', image: 'https://images.unsplash.com/photo-1497366811353-6870744d0913?auto=format&fit=crop&w=800&h=600&q=80', location: 'Cuttack' },
+    { title: 'Industrial Power Integration', category: 'Power Systems', image: '/images/services/industrial-automation-hero.png', location: 'Bangalore' },
+    { title: 'Smart Factory Automation', category: 'Industrial Automation', image: '/images/services/industrial-automation-hero.png', location: 'Bhubaneswar' },
+    { title: 'Solar Energy Deployment', category: 'Renewable Energy', image: '/images/services/solar-energy-hero.png', location: 'Cuttack' },
+    { title: 'Electrical Panel Upgrade', category: 'Electrical Engineering', image: '/images/services/industrial-automation-hero.png', location: 'Bangalore' },
+    { title: 'Security Surveillance Network', category: 'Security Systems', image: '/images/services/security-surveillance-hero.png', location: 'Bhubaneswar' },
+    { title: 'Office Automation Suite', category: 'Smart Office', image: '/images/services/office-automation-hero.png', location: 'Cuttack' },
   ];
 
   public consultingServices = [
-    { number: '01', title: 'Banking & Financial Services', description: 'We help financial institutions leverage automation to streamline operations, enhance security, and improve customer experiences.', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&h=600&q=80' },
-    { number: '02', title: 'Capital Markets Solutions', description: 'Leverage our expertise in trade automation, risk management, and data analytics to optimize operations in capital markets.', image: 'https://images.unsplash.com/photo-1611974789855-9caca4ede574?auto=format&fit=crop&w=800&h=600&q=80' },
-    { number: '03', title: 'Data & AI Services', description: 'Transform raw data into actionable insights with data strategy development, machine learning, predictive analytics, and business intelligence.', image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&h=600&q=80' },
+    { number: '01', title: 'Banking & Financial Services', description: 'We help financial institutions leverage automation to streamline operations, enhance security, and improve customer experiences.', image: '/images/services/banking-services-hero.png' },
+    { number: '02', title: 'Capital Markets Solutions', description: 'Leverage our expertise in trade automation, risk management, and data analytics to optimize operations in capital markets.', image: '/images/services/capital-markets-hero.png' },
+    { number: '03', title: 'Data & AI Services', description: 'Transform raw data into actionable insights with data strategy development, machine learning, predictive analytics, and business intelligence.', image: '/images/services/data-ai-services-hero.png' },
   ];
 
   public services: ServiceItem[] = [
     {
       title: 'Home Automation Solutions',
       description: 'Transform your living space with intelligent systems that enhance comfort, security, and energy efficiency.',
-      image: '/images/home-automation-video-thumbnail.jpg',
+      image: '/images/services/home-automation-hero.png',
       route: 'smart-home-automation-solutions',
       cta: 'Make your Home Smarter',
       analyticsKey: 'home_smart_home'
@@ -120,7 +120,7 @@ export class MainHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Office Automation Solutions',
       description: 'Streamline workplace operations with smart systems that boost productivity and strengthen security.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&h=600&q=80',
+      image: '/images/services/office-automation-hero.png',
       route: 'smart-office-automation-solutions',
       cta: 'Optimize Your Office',
       analyticsKey: 'home_automation_office'
@@ -128,7 +128,7 @@ export class MainHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Industrial Automation Systems',
       description: 'Optimize your industrial operations with robust, cloud-based automation solutions.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&h=600&q=80',
+      image: '/images/services/industrial-automation-hero.png',
       route: 'industrial-automation-solutions',
       cta: 'Boost Production',
       analyticsKey: 'home_automation_industry'
@@ -136,7 +136,7 @@ export class MainHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Security & Surveillance',
       description: 'Protect your assets with advanced video surveillance systems for residential, commercial, and industrial environments.',
-      image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa8?auto=format&fit=crop&w=800&h=600&q=80',
+      image: '/images/services/security-surveillance-hero.png',
       route: 'cctv-video-surveillance-security-cameras',
       cta: 'Upgrade Your Security',
       analyticsKey: 'home_automation_security'
@@ -152,7 +152,7 @@ export class MainHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Solar Energy Solutions',
       description: 'Optimize energy consumption with renewable solar solutions for homes and businesses.',
-      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&h=600&q=80',
+      image: '/images/services/solar-energy-hero.png',
       route: 'solar-energy-solutions',
       cta: 'Go Green',
       analyticsKey: 'home_go_green'

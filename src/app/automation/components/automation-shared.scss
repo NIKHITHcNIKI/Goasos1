@@ -1,0 +1,201 @@
+// SHARED AUTOMATION SOLUTION PAGE STYLES
+// Applied to all solution pages: home, office, industrial, security, space, energy
+
+$primary-color: #2563eb;
+$secondary-color: #00b8ff;
+$dark-bg: #081b3a;
+$light-bg: #f8fafc;
+$text-dark: #0f172a;
+$text-muted: #64748b;
+$white: #ffffff;
+
+// PREMIUM CARDS FOR FEATURES
+.feature-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .feature-card {
+        background: $white;
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid rgba(37, 99, 235, 0.08);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
+            border-color: rgba(37, 99, 235, 0.15);
+            
+            .feature-icon {
+                background: linear-gradient(135deg, $primary-color, $secondary-color);
+                color: $white;
+                transform: scale(1.1);
+            }
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            color: $primary-color;
+            margin-bottom: 1.2rem;
+            transition: all 0.4s ease;
+            
+            svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin-bottom: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        p {
+            color: $text-muted;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    }
+}
+
+// SECTION WITH TAG
+.section-with-tag {
+    margin-bottom: 3rem;
+    
+    .section-tag {
+        display: inline-block;
+        padding: 0.5em 1.2em;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.06));
+        color: $primary-color;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    h2 {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        color: $text-dark;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+}
+
+// PROCESS STEPS
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .step {
+        text-align: center;
+        
+        .step-number {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, $primary-color, $secondary-color);
+            color: $white;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .step-desc {
+            color: $text-muted;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+    }
+}
+
+// CTA BUTTON STYLES
+.cta-button {
+    display: inline-block;
+    padding: 0.9em 2rem;
+    background: linear-gradient(135deg, $primary-color 0%, #1e40af 100%);
+    color: $white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// BENEFIT LIST
+.benefit-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+        padding-left: 2.5rem;
+        position: relative;
+        margin-bottom: 1.2rem;
+        color: $text-muted;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        
+        &::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: $secondary-color;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+}

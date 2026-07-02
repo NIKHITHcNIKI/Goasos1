@@ -1,113 +1,95 @@
 <section class="block locations">
-    <h2>Our Office Locations</h2>
+    <div class="section-header">
+        <span class="section-tag">Offices</span>
+        <h2>Our Office Locations</h2>
+    </div>
     <div class="locals">
-        <mat-card class="space-it">
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Bengaluru (head Office)</h3>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="content">
-                    <p>Generation Of Automation Solutions Pvt. Ltd.</p>
-                    <address>
-                        Ashiana Garden, 103 Plot-56/2, Doopanahalli, Indiranagar, Bengaluru - 560008
-                    </address>
-                    <ul>
-                        <li>
-                            <h4>Phone:</h4>
-                            <p><a href="tel:+919845812673">+91-98458 12673</a></p>
-                        </li>
-                        <li>
-                            <h4>Email:</h4>
-                            <p><a href="mailto:hemanta.bal@goasos.com">hemanta.bal&#64;goasos.com</a></p>
-                        </li>
-                        <li>
-                            <h4>Hours:</h4>
-                            <p>Mon-Fri: 9:30 AM - 6:30 PM</p>
-                        </li>
-                    </ul>
-                </div>
-            </mat-card-content>
-            <mat-card-actions>
-                <div class="wrap">
-                    <a target="_blank" (click)="analytics.HomeCtaEvent('contact_location_bangalore')"
-                    href="https://maps.app.goo.gl/e6cdU1oD3dfzBr3m7">Get
-                    directions&nbsp;&nbsp;&rarr;</a>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="space-it">
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Bhubaneswar Office</h3>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="content">
-                    <p>Generation Of Automation Solutions Pvt. Ltd.</p>
-                    <address>
-                        A/4, 282, Kalyani Nagar, Patrapada, Bhubaneswar, Odisha 751019
-                    </address>
-                    <ul>
-                        <li>
-                            <h4>Phone:</h4>
-                            <p><a href="tel:+918249003143">+91-82490 03143</a></p>
-                        </li>
-                        <li>
-                            <h4>Email:</h4>
-                            <p><a href="mailto:hemanta.bal@goasos.com">hemanta.bal&#64;goasos.com</a></p>
-                        </li>
-                        <li>
-                            <h4>Hours:</h4>
-                            <p>Mon-Fri: 9:30 AM - 6:30 PM</p>
-                        </li>
-                    </ul>
-                </div>
-            </mat-card-content>
-            <mat-card-actions>
-                <div class="wrap">
-                    <a target="_blank" (click)="analytics.HomeCtaEvent('contact_location_Bhubaneshwar')"
-                    href="https://maps.app.goo.gl/v4cZMvTyp33aVTmZ7">Get
-                    directions&nbsp;&nbsp;&rarr;</a>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="space-it">
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Cuttack Office</h3>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="content">
-                    <p>Generation Of Automation Solutions Pvt. Ltd.</p>
-                    <address>
-                        Plot:437/C, Sector - 6, Markat Nagar, Cuttack, Odisha 753014
-                    </address>
-                    <ul>
-                        <li>
-                            <h4>Phone:</h4>
-                            <p><a href="tel:+919845812673">+91-98458 12673</a></p>
-                        </li>
-                        <li>
-                            <h4>Email:</h4>
-                            <p><a href="mailto:hemanta.bal@goasos.com">hemanta.bal&#64;goasos.com</a></p>
-                        </li>
-                        <li>
-                            <h4>Hours:</h4>
-                            <p>Mon-Fri: 9:30 AM - 6:30 PM</p>
-                        </li>
-                    </ul>
-                </div>
-            </mat-card-content>
-            <mat-card-actions>
-                <div class="wrap">
-                    <a target="_blank" (click)="analytics.HomeCtaEvent('contact_location_cuttack')"
-                        href="https://maps.app.goo.gl/ng3T3nevNxx1Fn7EA">Get
-                        directions&nbsp;&nbsp;&rarr;</a>
-                </div>
-            </mat-card-actions>
-        </mat-card>
+        <div class="premium-location-card">
+            <div class="card-image">
+                <img src="images/contact-bangalore.png" alt="Bengaluru Office Location" loading="lazy">
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3>Bengaluru (Head Office)</h3>
+                <p class="company-name">Generation Of Automation Solutions Pvt. Ltd.</p>
+                <address>
+                    Ashiana Garden, 103 Plot-56/2, Doopanahalli, Indiranagar, Bengaluru - 560008
+                </address>
+                <ul class="office-details">
+                    <li>
+                        <h4>Phone:</h4>
+                        <p><a href="tel:+919845812673">+91-98458 12673</a></p>
+                    </li>
+                    <li>
+                        <h4>Email:</h4>
+                        <p><a href="mailto:hemanta.bal@goasos.com">hemanta.bal&#64;goasos.com</a></p>
+                    </li>
+                    <li>
+                        <h4>Hours:</h4>
+                        <p>Mon-Fri: 9:30 AM - 6:30 PM</p>
+                    </li>
+                </ul>
+                <a target="_blank" (click)="analytics.HomeCtaEvent('contact_location_bangalore')"
+                    href="https://maps.app.goo.gl/e6cdU1oD3dfzBr3m7" class="direction-link">Get directions &rarr;</a>
+            </div>
+        </div>
+        <div class="premium-location-card">
+            <div class="card-image">
+                <img src="images/contact-bhubaneswar.png" alt="Bhubaneswar Office Location" loading="lazy">
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3>Bhubaneswar Office</h3>
+                <p class="company-name">Generation Of Automation Solutions Pvt. Ltd.</p>
+                <address>
+                    A/4, 282, Kalyani Nagar, Patrapada, Bhubaneswar, Odisha 751019
+                </address>
+                <ul class="office-details">
+                    <li>
+                        <h4>Phone:</h4>
+                        <p><a href="tel:+918249003143">+91-82490 03143</a></p>
+                    </li>
+                    <li>
+                        <h4>Email:</h4>
+                        <p><a href="mailto:hemanta.bal@goasos.com">hemanta.bal&#64;goasos.com</a></p>
+                    </li>
+                    <li>
+                        <h4>Hours:</h4>
+                        <p>Mon-Fri: 9:30 AM - 6:30 PM</p>
+                    </li>
+                </ul>
+                <a target="_blank" (click)="analytics.HomeCtaEvent('contact_location_Bhubaneshwar')"
+                    href="https://maps.app.goo.gl/v4cZMvTyp33aVTmZ7" class="direction-link">Get directions &rarr;</a>
+            </div>
+        </div>
+        <div class="premium-location-card">
+            <div class="card-image">
+                <img src="images/contact-cuttack.png" alt="Cuttack Office Location" loading="lazy">
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3>Cuttack Office</h3>
+                <p class="company-name">Generation Of Automation Solutions Pvt. Ltd.</p>
+                <address>
+                    Plot:437/C, Sector - 6, Markat Nagar, Cuttack, Odisha 753014
+                </address>
+                <ul class="office-details">
+                    <li>
+                        <h4>Phone:</h4>
+                        <p><a href="tel:+919845812673">+91-98458 12673</a></p>
+                    </li>
+                    <li>
+                        <h4>Email:</h4>
+                        <p><a href="mailto:hemanta.bal@goasos.com">hemanta.bal&#64;goasos.com</a></p>
+                    </li>
+                    <li>
+                        <h4>Hours:</h4>
+                        <p>Mon-Fri: 9:30 AM - 6:30 PM</p>
+                    </li>
+                </ul>
+                <a target="_blank" (click)="analytics.HomeCtaEvent('contact_location_cuttack')"
+                    href="https://maps.app.goo.gl/ng3T3nevNxx1Fn7EA" class="direction-link">Get directions &rarr;</a>
+            </div>
+        </div>
     </div>
 </section>

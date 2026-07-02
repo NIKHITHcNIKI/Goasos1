@@ -1,6 +1,7 @@
-$primary: #00a7f8;
-$primary-dark: #007cf3;
-$dark: #0a1628;
+$primary: #2563eb;
+$primary-dark: #1e40af;
+$secondary: #00b8ff;
+$dark: #081b3a;
 $breaking-point: 1024px;
 
 header.site-header {
@@ -8,12 +9,16 @@ header.site-header {
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    padding: 0.75rem clamp(1rem, 3vw, 2rem);
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(10, 22, 40, 0.06);
-    box-shadow: 0 4px 24px rgba(10, 22, 40, 0.06);
+    padding: 0.85rem clamp(1.5rem, 4vw, 3rem);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
 
     .logo-link {
         display: flex;
@@ -73,38 +78,46 @@ header.site-header {
                 .dropdown-trigger {
                     display: flex;
                     align-items: center;
-                    gap: 0.35rem;
-                    padding: 0.6em 1em;
+                    gap: 0.5rem;
+                    padding: 0.7em 1.2em;
                     color: $dark;
                     text-decoration: none;
                     font-weight: 500;
                     font-size: 0.95rem;
                     border-radius: 8px;
-                    transition: all 0.25s ease;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     background: none;
                     border: none;
                     cursor: pointer;
-                    font-family: inherit;
+                    font-family: 'Inter', sans-serif;
+                    letter-spacing: 0.3px;
 
                     @media (max-width: $breaking-point) {
-                        color: rgba(255, 255, 255, 0.85);
-                        padding: 0.85em 1em;
+                        color: rgba(255, 255, 255, 0.9);
+                        padding: 0.9em 1.2em;
                         font-size: 1rem;
                     }
 
                     svg {
-                        transition: transform 0.2s ease;
+                        transition: transform 0.3s ease;
+                        width: 18px;
+                        height: 18px;
                     }
                 }
 
                 > a:hover,
                 .dropdown-trigger:hover {
                     color: $primary;
-                    background: rgba(0, 167, 248, 0.08);
+                    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.08));
+                    transform: translateY(-1px);
+
+                    svg {
+                        transform: translateY(2px);
+                    }
 
                     @media (max-width: $breaking-point) {
-                        background: rgba(255, 255, 255, 0.08);
-                        color: $primary;
+                        background: rgba(255, 255, 255, 0.1);
+                        color: $secondary;
                     }
                 }
 
@@ -112,6 +125,7 @@ header.site-header {
                 &.active .dropdown-trigger {
                     color: $primary;
                     font-weight: 600;
+                    background: rgba(37, 99, 235, 0.08);
                 }
             }
         }
@@ -119,26 +133,32 @@ header.site-header {
         .nav-cta {
             display: inline-flex;
             align-items: center;
-            padding: 0.65em 1.4em;
-            background: linear-gradient(135deg, $primary, $primary-dark);
+            padding: 0.75em 1.8em;
+            background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
             color: white;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 16px rgba(0, 167, 248, 0.35);
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.4px;
 
             @media (max-width: $breaking-point) {
                 margin-top: 1.5rem;
                 justify-content: center;
-                padding: 0.85em 1.5em;
+                padding: 0.9em 1.8em;
             }
 
             &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 24px rgba(0, 167, 248, 0.45);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+            }
+
+            &:active {
+                transform: translateY(-1px);
             }
         }
     }
@@ -147,27 +167,32 @@ header.site-header {
         display: none;
         flex-direction: column;
         justify-content: center;
-        gap: 5px;
-        width: 44px;
-        height: 44px;
+        gap: 6px;
+        width: 48px;
+        height: 48px;
         border: none;
-        background: rgba(10, 22, 40, 0.06);
-        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.08));
+        border-radius: 12px;
         cursor: pointer;
         z-index: 201;
-        padding: 10px;
+        padding: 12px;
+        transition: all 0.3s ease;
 
         @media (max-width: $breaking-point) {
             display: flex;
         }
 
+        &:hover {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(0, 184, 255, 0.12));
+        }
+
         > span {
             display: block;
-            height: 2px;
-            width: 22px;
+            height: 2.5px;
+            width: 24px;
             background: $dark;
             border-radius: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
     }
 }

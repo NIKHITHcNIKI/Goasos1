@@ -1,101 +1,249 @@
 <app-hero [showCLient]="true"
-    h1="Elevate Your Living: Smart Home Automation Solutions in Bangalore, Bhubaneswar & Cuttack" p="Transform your home into a smart, secure and energy-efficient space with our cutting-edge home automation
-solutions. We offer smart lighting, security systems, voice-controlled devices, and AI-powered smart home setups
-in Bengaluru, Bhubaneswar & Cuttack.">
+    h1="Elevate Your Living: Smart Home Automation Solutions in Bangalore, Bhubaneswar & Cuttack" 
+    p="Transform your home into a smart, secure and energy-efficient space with our cutting-edge home automation solutions. We offer smart lighting, security systems, voice-controlled devices, and AI-powered smart home setups in Bengaluru, Bhubaneswar & Cuttack."
+    [backgroundImage]="'/images/home/smart-home-hero-bg.jpg'"
+    [premium]="true">
     <div class="actions" actions>
-        <a class="pri" (click)="CaptureClicks('home_automation_hero')" [href]="cont.PopulateContactLocation()">Schedule
-            Free Home Automation
-            Consultation&nbsp;&nbsp;&rarr;</a>
+        <a class="pri hero-cta" (click)="CaptureClicks('home_automation_hero')" [href]="cont.PopulateContactLocation()">Schedule Free Home Automation Consultation&nbsp;&nbsp;&rarr;</a>
     </div>
 </app-hero>
-<section class="block why">
-    <h2>Why Choose Our Home Automation Services?</h2>
-    <ul class="strong-point">
-        <li><h3>Seamless Control</h3>Manage everything via mobile apps or voice assistants.</li>
-        <li><h3>Enhanced Security</h3>Protect your home with smart locks, video doorbell integration & CCTV.
-        </li>
-        <li><h3>Energy Efficiency</h3>Automate lights, curtains & appliances to reduce energy waste.</li>
-        <li><h3>Expert Installation</h3>We customize solutions for apartments, villas & commercial spaces.</li>
-    </ul>
-</section>
-<section class="block products">
-    <h2>Our Home Automation Solutions</h2>
-    <div class="automation-cards">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title><h3>Home Security & Surveillance</h3></mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <ul class="card-list">
-                    <li>CCTV cameras & smart doorbells with real-time mobile alerts.</li>
-                    <li>AI-based motion detection & face recognition.</li>
-                    <li>Smart locks & biometric security systems for safety.</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title><h3>Smart Gate Automation</h3></mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <ul class="card-list">
-                    <li>Control your main gate remotely with a mobile app or voice command.</li>
-                    <li>Seamless entry and exit control.</li>
-                    <li>Enhanced security and convenience.</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title><h3>Smart Door Locks & Video Doorbell Integration</h3></mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <ul class="card-list">
-                    <li>Keyless entry systems & remote access control.</li>
-                    <li>Real-time visitor monitoring.</li>
-                    <li>Integration with smartphone apps.</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title><h3>Smart Lighting Automation</h3></mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <ul class="card-list">
-                    <li>Control lights remotely via smartphone or voice assistants.</li>
-                    <li>Automated dimming & color changing for mood lighting.</li>
-                    <li>Motion-activated & time-based lighting for energy efficiency.</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title><h3>Automated Curtain & Blinds</h3></mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <ul class="card-list">
-                    <li>Open & close curtains remotely using a mobile app.</li>
-                    <li>Schedule-based operation.</li>
-                    <li>Energy-saving features to keep your home cool.</li>
-                </ul>
-            </mat-card-content>
-        </mat-card>
+<section class="why-choose-section">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Benefits</span>
+            <h2>Why Choose Our Home Automation Services?</h2>
+        </div>
+        
+        <ul class="benefits-grid">
+            <li class="benefit-card">
+                <div class="benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="9" x2="15" y2="9"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                </div>
+                <h3>Seamless Control</h3>
+                <p>Manage everything via mobile apps or voice assistants.</p>
+            </li>
+            <li class="benefit-card">
+                <div class="benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3>Enhanced Security</h3>
+                <p>Protect your home with smart locks, video doorbell integration & CCTV.</p>
+            </li>
+            <li class="benefit-card">
+                <div class="benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                </div>
+                <h3>Energy Efficiency</h3>
+                <p>Automate lights, curtains & appliances to reduce energy waste.</p>
+            </li>
+            <li class="benefit-card">
+                <div class="benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20"></path>
+                        <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                </div>
+                <h3>Expert Installation</h3>
+                <p>We customize solutions for apartments, villas & commercial spaces.</p>
+            </li>
+        </ul>
     </div>
-    <a class="highlight-text" [href]="cont.PopulateContactLocation()">Want a fully automated home? Contact us now!</a>
+</section>
+<section class="products-section">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Products & Services</span>
+            <h2>Our Home Automation Solutions</h2>
+        </div>
+
+        <div class="products-grid">
+            <mat-card class="product-card">
+                <img src="/images/products/smart-security.png" alt="Home Security & Surveillance - CCTV cameras and smart doorbell system" class="product-image">
+                <mat-card-header>
+                    <mat-card-title><h3>Home Security & Surveillance</h3></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="card-list">
+                        <li>CCTV cameras & smart doorbells with real-time mobile alerts.</li>
+                        <li>AI-based motion detection & face recognition.</li>
+                        <li>Smart locks & biometric security systems for safety.</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="product-card">
+                <img src="/images/products/smart-gate.png" alt="Smart Gate Automation - Automatic gate system with remote control" class="product-image">
+                <mat-card-header>
+                    <mat-card-title><h3>Smart Gate Automation</h3></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="card-list">
+                        <li>Control your main gate remotely with a mobile app or voice command.</li>
+                        <li>Seamless entry and exit control.</li>
+                        <li>Enhanced security and convenience.</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="product-card">
+                <img src="/images/products/smart-locks.png" alt="Smart Door Locks & Video Doorbell - Modern smart lock system" class="product-image">
+                <mat-card-header>
+                    <mat-card-title><h3>Smart Door Locks & Video Doorbell Integration</h3></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="card-list">
+                        <li>Keyless entry systems & remote access control.</li>
+                        <li>Real-time visitor monitoring.</li>
+                        <li>Integration with smartphone apps.</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="product-card">
+                <img src="/images/products/smart-lighting.png" alt="Smart Lighting Automation - RGB smart bulbs and wireless controls" class="product-image">
+                <mat-card-header>
+                    <mat-card-title><h3>Smart Lighting Automation</h3></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="card-list">
+                        <li>Control lights remotely via smartphone or voice assistants.</li>
+                        <li>Automated dimming & color changing for mood lighting.</li>
+                        <li>Motion-activated & time-based lighting for energy efficiency.</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="product-card">
+                <img src="/images/products/smart-curtains.png" alt="Automated Curtain & Blinds - Motorized curtain system with app control" class="product-image">
+                <mat-card-header>
+                    <mat-card-title><h3>Automated Curtain & Blinds</h3></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <ul class="card-list">
+                        <li>Open & close curtains remotely using a mobile app.</li>
+                        <li>Schedule-based operation.</li>
+                        <li>Energy-saving features to keep your home cool.</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="products-cta">
+            <a class="cta-button" [href]="cont.PopulateContactLocation()">Want a fully automated home? Contact us now!</a>
+        </div>
+    </div>
 </section>
 <app-service-areas header="We provide home automation solutions in:"
 bangalore="Complete smart home solutions for tech-savvy urban homes"
 bhubaneshwar="Advanced automation for modern residential spaces"
 cuttack="Smart home technology tailored to your lifestyle"></app-service-areas>
-<section class="block working">
-    <h2>How it works</h2>
-    <ul>
-        <li><strong>Step&nbsp;1</strong>Free Consultation - Discuss your needs with our experts.</li>
-        <li><strong>Step&nbsp;2</strong>Customized Solution - We design a tailored automation plan.</li>
-        <li><strong>Step&nbsp;3</strong>Installation & Setup - Quick & professional installation.</li>
-        <li><strong>Step&nbsp;4</strong>Training & Support - Learn to use your smart home with ease!</li>
-    </ul>
+<section class="how-it-works-section">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Process</span>
+            <h2>How it works</h2>
+        </div>
+
+        <div class="process-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="process-steps">
+                <div class="process-step" style="--step-delay: 0">
+                    <div class="step-marker">
+                        <span class="step-number">01</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Free Consultation</h3>
+                        <p>Discuss your needs with our experts.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" style="--step-delay: 1">
+                    <div class="step-marker">
+                        <span class="step-number">02</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Customized Solution</h3>
+                        <p>We design a tailored automation plan.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" style="--step-delay: 2">
+                    <div class="step-marker">
+                        <span class="step-number">03</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Installation & Setup</h3>
+                        <p>Quick & professional installation.</p>
+                    </div>
+                </div>
+
+                <div class="process-step" style="--step-delay: 3">
+                    <div class="step-marker">
+                        <span class="step-number">04</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Training & Support</h3>
+                        <p>Learn to use your smart home with ease!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<!-- YOU MAY ALSO BE INTERESTED IN SECTION -->
+<section class="related-services-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2>You May Also Be Interested In:</h2>
+        </div>
+
+        <div class="related-services-grid">
+            <div class="related-card">
+                <div class="related-card-image">
+                    <img src="/images/services/smart-audio.png" alt="Smart Multi-Room Audio System for entertainment" loading="lazy">
+                </div>
+                <div class="related-card-content">
+                    <h3>Smart Multi-Room Audio System</h3>
+                    <p>Enjoy seamless audio experience throughout your home with synchronized streaming and voice-controlled multi-room speakers for entertainment.</p>
+                    <a href="#" class="related-link">Explore Audio Solutions →</a>
+                </div>
+            </div>
+
+            <div class="related-card">
+                <div class="related-card-image">
+                    <img src="/images/services/smart-climate.png" alt="Smart Climate Control and Thermostat System" loading="lazy">
+                </div>
+                <div class="related-card-content">
+                    <h3>Smart Climate Control System</h3>
+                    <p>Maintain perfect comfort with intelligent HVAC management, occupancy-based control, and energy-efficient temperature automation throughout your space.</p>
+                    <a href="#" class="related-link">Optimize Climate Today →</a>
+                </div>
+            </div>
+
+            <div class="related-card">
+                <div class="related-card-image">
+                    <img src="/images/services/smart-energy.png" alt="Smart Energy Monitoring and Management Dashboard" loading="lazy">
+                </div>
+                <div class="related-card-content">
+                    <h3>Energy Monitoring & Management</h3>
+                    <p>Track and optimize your home's energy consumption with real-time analytics and automated control to reduce utility bills and environmental impact.</p>
+                    <a href="#" class="related-link">Start Saving Energy →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <app-contact h2="Ready to Automate Your Home?"></app-contact>
 <app-interest [data]="others" />

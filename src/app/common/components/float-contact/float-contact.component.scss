@@ -14,6 +14,65 @@ div.wrapper {
         > li {
             padding: 10px 15px;
             border-right: 1px solid $shadow-color;
+            
+            &.logo-item {
+                padding: 8px 12px;
+                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                
+                > a {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .company-logo {
+                        height: 28px !important;
+                        width: 28px;
+                        object-fit: contain;
+                        display: block;
+                        transition: transform 0.3s ease, filter 0.3s ease;
+                        
+                        &:hover {
+                            transform: scale(1.15);
+                            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+                        }
+                    }
+                }
+            }
+            
+            &.youtube-item {
+                > a {
+                    .youtube-logo {
+                        height: 32px !important;
+                        width: 32px !important;
+                        object-fit: contain;
+                        display: block;
+                        transition: transform 0.3s ease, filter 0.3s ease;
+                        
+                        &:hover {
+                            transform: scale(1.15);
+                            filter: drop-shadow(0 2px 8px rgba(255, 0, 0, 0.4));
+                        }
+                    }
+                }
+            }
+            
+            &.whatsapp-item {
+                > a {
+                    .whatsapp-logo {
+                        height: 32px !important;
+                        width: 32px !important;
+                        object-fit: contain;
+                        display: block;
+                        transition: transform 0.3s ease, filter 0.3s ease;
+                        
+                        &:hover {
+                            transform: scale(1.15) rotate(-5deg);
+                            filter: drop-shadow(0 2px 8px rgba(37, 211, 102, 0.4));
+                        }
+                    }
+                }
+            }
+            
             &:last-of-type {
                 border-right: none;
             }

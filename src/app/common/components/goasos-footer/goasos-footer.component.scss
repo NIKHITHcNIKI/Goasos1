@@ -1,10 +1,12 @@
-$primary: #00a7f8;
-$dark: #0a1628;
-$text-muted: rgba(255, 255, 255, 0.6);
+$primary: #2563eb;
+$secondary: #00b8ff;
+$dark: #081b3a;
+$dark-light: #0f2847;
+$text-muted: rgba(255, 255, 255, 0.65);
 
 footer.wrapper.footer-premium {
-    background: linear-gradient(180deg, $dark 0%, darken($dark, 3%) 100%);
-    color: rgba(255, 255, 255, 0.85);
+    background: linear-gradient(180deg, $dark 0%, $dark-light 100%);
+    color: rgba(255, 255, 255, 0.9);
     padding: 0;
     gap: 0;
     margin: 0;
@@ -57,22 +59,25 @@ footer.wrapper.footer-premium {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 40px;
-                height: 40px;
-                border-radius: 10px;
-                background: rgba(255, 255, 255, 0.08);
-                color: rgba(255, 255, 255, 0.7);
-                transition: all 0.3s ease;
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: rgba(37, 99, 235, 0.1);
+                color: rgba(255, 255, 255, 0.8);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border: 1px solid rgba(37, 99, 235, 0.2);
 
                 svg {
-                    width: 18px;
-                    height: 18px;
+                    width: 20px;
+                    height: 20px;
                 }
 
                 &:hover {
-                    background: $primary;
+                    background: linear-gradient(135deg, $primary, $secondary);
                     color: white;
-                    transform: translateY(-2px);
+                    transform: translateY(-4px);
+                    border-color: $secondary;
+                    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
                 }
             }
         }
@@ -179,7 +184,7 @@ footer.wrapper.footer-premium {
 
             button {
                 padding: 0.7em 1.2em;
-                background: linear-gradient(135deg, $primary, #007cf3);
+                background: linear-gradient(135deg, $primary, #1e40af);
                 color: white;
                 border: none;
                 border-radius: 8px;

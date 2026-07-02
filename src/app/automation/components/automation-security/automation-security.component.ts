@@ -51,4 +51,15 @@ export class AutomationSecurityComponent implements OnInit, OnDestroy {
   public CaptureClicks(cta: string): void {
     this.analytics.HomeCtaEvent(cta);
   }
+
+  public getServiceImage(index: number): string {
+    const images = [
+      'url(/images/security/service-ip-cameras-office.png)',
+      'url(/images/security/service-solar-cctv.png)',
+      'url(/images/security/service-ai-analytics.png)',
+      'url(/images/security/service-control-room.png)',
+      'url(/images/security/service-monitoring-center.png)'
+    ];
+    return images[index % images.length];
+  }
 }

@@ -1,20 +1,21 @@
 @use "@angular/material" as mat;
 @include mat.core();
 
+// NEW PREMIUM COLOR PALETTE
 $md-primary: (
-  50: #e0f4fe,
-  100: #b3e5fd,
-  200: #80d3fc,
-  300: #4dc1fa,
-  400: #26b4f9,
-  500: #00a7f8,
-  600: #009ff7,
-  700: #0096f6,
-  800: #008cf5,
-  900: #007cf3,
+  50: #eff6ff,
+  100: #dbeafe,
+  200: #bfdbfe,
+  300: #93c5fd,
+  400: #60a5fa,
+  500: #2563eb,
+  600: #1d4ed8,
+  700: #1e40af,
+  800: #1e3a8a,
+  900: #172554,
   A100: #ffffff,
-  A200: #e6f1ff,
-  A400: #b3d6ff,
+  A200: #e0efff,
+  A400: #b3d9ff,
   A700: #9ac8ff,
   contrast: (
     50: #000000,
@@ -50,6 +51,24 @@ $goasos-theme: mat.m2-define-light-theme(
 
 @include mat.all-component-themes($goasos-theme);
 
+// PREMIUM DESIGN SYSTEM - COLOR VARIABLES
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-secondary: #00b8ff;
+  --color-dark: #081b3a;
+  --color-light-bg: #f8fafc;
+  --color-white: #ffffff;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-border: #e2e8f0;
+  --color-shadow: rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -71,12 +90,18 @@ html,
 body {
   height: 100%;
 }
+
+// Import premium fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 body {
   min-height: 100vh;
-  font-family: "Ubuntu Sans", sans-serif;
-  font-size: 1.1rem;
-  background-color: rgb(241, 244, 247);
-  line-height: unset;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-size: 1rem;
+  background-color: var(--color-light-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 a,
@@ -86,9 +111,155 @@ input {
   font-family: inherit;
   font-size: inherit;
 }
-$primary-color: #00a7f8;
+// PREMIUM COMPONENT UTILITIES
+$primary-color: #2563eb;
+$secondary-color: #00b8ff;
+
 .highlight-text {
   color: $primary-color;
+}
+
+// Glassmorphism effect
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+.glass-effect-dark {
+  background: rgba(8, 27, 58, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+// Premium card styles
+.premium-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+// Premium buttons
+.premium-btn {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.premium-btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 10px 26px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+}
+
+// Text styles
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heading-hero {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+}
+
+.heading-section {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+  }
+}
+
+.subheading {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+}
+
+// Accessibility & Performance
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Dark mode support (optional)
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-light-bg: #1e293b;
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+  }
 }
 @mixin list-spacing {
   margin: 0.3em 0;
@@ -160,6 +331,7 @@ ul.card-list {
   }
 }
 
+// PREMIUM ANIMATIONS
 @keyframes come-in-ltr {
   from {
     transform: translateX(50px);
@@ -187,6 +359,94 @@ ul.card-list {
   to {
     transform: rotate(360deg);
   }
+}
+
+// New Premium Animations
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Utility animation classes
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 button.product-video-control {
@@ -219,10 +479,10 @@ button.product-video-control {
   > span {
   }
   &.active {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #00a7f8;
+    background-color: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
     > .ico {
-      fill: #00a7f8;
+      fill: #2563eb;
     }
   }
 }
@@ -396,7 +656,7 @@ ul.drop-menu {
     padding: 10px 15px;
     &:hover,
     &.active {
-      color: #00a7f8;
+      color: #2563eb;
     }
   }
 }

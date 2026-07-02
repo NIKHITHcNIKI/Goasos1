@@ -1,13 +1,48 @@
 <section class="contact-wrapper">
-    <section class="hero">
-        <h1>We're Here to Help You Automate, Innovate and Grow</h1>
-        <p>Connect with Us Today!</p>
+    <section class="hero premium-hero">
+        <div class="hero-background" [style.backgroundImage]="'url(images/contact-hero.png)'"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>We're Here to Help You Automate, Innovate and Grow</h1>
+            <p>Connect with Us Today!</p>
+        </div>
     </section>
+
+    <section class="quick-contact">
+        <div class="section-header">
+            <span class="section-tag">Get in Touch</span>
+            <h2>Multiple Ways to Reach Us</h2>
+        </div>
+        <div class="contact-methods-grid">
+            <div class="contact-method-card">
+                <div class="method-icon">📞</div>
+                <h3>Phone Support</h3>
+                <p>Call us directly during business hours</p>
+                <a href="tel:+919876543210" class="method-link">+91 98765 43210</a>
+            </div>
+            <div class="contact-method-card">
+                <div class="method-icon">✉️</div>
+                <h3>Email Us</h3>
+                <p>Send us your inquiry anytime</p>
+                <a href="mailto:info&#64;goas.com" class="method-link">info&#64;goas.com</a>
+            </div>
+            <div class="contact-method-card">
+                <div class="method-icon">🕐</div>
+                <h3>Office Hours</h3>
+                <p>Mon - Fri: 9:00 AM - 6:00 PM IST</p>
+                <p class="hours-note">Sat - Sun: Closed</p>
+            </div>
+        </div>
+    </section>
+
     <app-main-contact-branch />
     <app-contact h2="Drop Us a Message"
         h3="Use the form below to send us your query. One of our specialists will respond within 24 hours." />
     <section class="social">
-        <h2>Connect With Us Online</h2>
+        <div class="section-header">
+            <span class="section-tag">Social Media</span>
+            <h2>Connect With Us Online</h2>
+        </div>
         <p>Follow us on social media to stay updated on the latest in automation technology:</p>
         <ul>
             <li><a href="https://www.linkedin.com/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"

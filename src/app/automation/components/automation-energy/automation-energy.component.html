@@ -1,39 +1,72 @@
 <app-hero h1="Smart Solar Energy Solutions for Homes, Offices & Industries | Bangalore, Bhubaneswar & Cuttack"
     p="Harness the power of solar and smart energy automation with GOAS. We offer end-to-end solar panel installation and smart energy management systems for homes, offices, and industrial sites in Bangalore, Bhubaneswar and Cuttack. Save energy, reduce costs, and go green today!"
-    [showCLient]="true">
+    [showCLient]="true"
+    [premium]="true"
+    [backgroundImage]="'images/solar-hero.png'">
     <div class="actions" actions>
         <a class="pri" (click)="CaptureClicks('energy_automation_hero')" [href]="cont.PopulateContactLocation()">Request
             Free Consultation&nbsp;&nbsp;&rarr;</a>
     </div>
 </app-hero>
 <section class="products">
-    <h2>Our Solar Solutions</h2>
-    <div>
-        <h3>Solar Panel Installation</h3>
-        <ul>
-            <li>Rooftop solar for homes and apartments</li>
-            <li>Commercial solar installations for offices and buildings</li>
-            <li>Industrial solar farms and grid integration</li>
-            <li>Battery backup and energy storage solutions</li>
-        </ul>
-        <a class="highlight-text" (click)="CaptureClicks('energy_automation_installation')"
-            [href]="cont.PopulateContactLocation()">Request
-            a Free Consultation</a>
+    <div class="section-with-tag">
+        <span class="section-tag">Solutions</span>
+        <h2>Our Solar Solutions</h2>
+    </div>
+    <div class="solar-solutions-grid">
+        <div class="solution-card">
+            <div class="card-image">
+                <img src="images/solar-installation.png" alt="Professional solar panel installation" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h3>Solar Panel Installation</h3>
+                <ul class="benefit-list">
+                    <li>Rooftop solar for homes and apartments</li>
+                    <li>Commercial solar installations for offices and buildings</li>
+                    <li>Industrial solar farms and grid integration</li>
+                    <li>Battery backup and energy storage solutions</li>
+                </ul>
+                <a class="cta-button" (click)="CaptureClicks('energy_automation_installation')"
+                    [href]="cont.PopulateContactLocation()">Request a Free Consultation</a>
+            </div>
+        </div>
+        <div class="solution-card">
+            <div class="card-image">
+                <img src="images/solar-dashboard.png" alt="Energy monitoring dashboard" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h3>Smart Energy Monitoring</h3>
+                <ul class="benefit-list">
+                    <li>Real-time energy generation tracking</li>
+                    <li>Performance analytics and insights</li>
+                    <li>Mobile app for remote monitoring</li>
+                    <li>Automated alerts and notifications</li>
+                </ul>
+                <a class="cta-button" (click)="CaptureClicks('energy_automation_monitoring')"
+                    [href]="cont.PopulateContactLocation()">Learn More</a>
+            </div>
+        </div>
     </div>
 </section>
 <section class="benefits">
-    <h2>Benefits of Solar + Energy Automation</h2>
-    <div>
-        <ul>
-            <li>Save up to 70% on energy bills</li>
-            <li>Eco-Friendly</li>
-            <li>Increased property value</li>
-            <li>Minimal maintenance requirements</li>
-            <li>Enjoy uninterrupted power with battery support</li>
-            <li>Automate energy usage for greater efficiency</li>
-        </ul>
-        <!-- <a class="highlight-text" (click)="CaptureClicks('energy_automation_benefits')"
-            [href]="cont.PopulateContactLocation()">Request a Free Consultation</a> -->
+    <div class="section-with-tag">
+        <span class="section-tag">Why Choose Us</span>
+        <h2>Benefits of Solar + Energy Automation</h2>
+    </div>
+    <div class="benefits-container">
+        <div class="benefits-column">
+            <ul class="benefit-list">
+                <li>Save up to 70% on energy bills</li>
+                <li>Eco-Friendly</li>
+                <li>Increased property value</li>
+                <li>Minimal maintenance requirements</li>
+                <li>Enjoy uninterrupted power with battery support</li>
+                <li>Automate energy usage for greater efficiency</li>
+            </ul>
+        </div>
+        <div class="benefits-image">
+            <img src="images/solar-farm.png" alt="Solar farm renewable energy" loading="lazy">
+        </div>
     </div>
 </section>
 <app-service-areas header="We provide local, personalized service in:" bangalore="and surrounding areas"

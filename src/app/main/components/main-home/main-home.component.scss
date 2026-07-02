@@ -1,14 +1,15 @@
-$primary: #00a7f8;
-$primary-dark: #007cf3;
-$accent-red: #e63946;
-$dark: #0a1628;
-$dark-light: #132238;
-$text-dark: #1a2b3c;
-$text-muted: #5a6a7a;
+$primary: #2563eb;
+$primary-dark: #1e40af;
+$secondary: #00b8ff;
+$accent-red: #ef4444;
+$dark: #081b3a;
+$dark-light: #0f2847;
+$text-dark: #0f172a;
+$text-muted: #64748b;
 $white: #ffffff;
-$glass-bg: rgba(255, 255, 255, 0.7);
-$glass-border: rgba(255, 255, 255, 0.3);
-$section-padding: clamp(3rem, 8vw, 6rem);
+$glass-bg: rgba(255, 255, 255, 0.85);
+$glass-border: rgba(37, 99, 235, 0.12);
+$section-padding: clamp(4rem, 10vw, 7rem);
 
 @mixin glass-card {
     background: $glass-bg;
@@ -55,19 +56,20 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
     .section-tag {
         display: inline-block;
-        padding: 0.4em 1em;
-        background: linear-gradient(135deg, rgba(0, 167, 248, 0.1), rgba(0, 124, 243, 0.05));
+        padding: 0.5em 1.2em;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.06));
         color: $primary;
         border-radius: 50px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 600;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
+        font-family: 'Inter', sans-serif;
     }
 
     .section-header {
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
 
         &.centered {
             text-align: center;
@@ -79,30 +81,38 @@ $section-padding: clamp(3rem, 8vw, 6rem);
         }
 
         h2 {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
             color: $text-dark;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5em;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.8em;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
         }
     }
 
     .section-lead {
         font-size: 1.1rem;
         color: $text-muted;
-        line-height: 1.7;
-        max-width: 650px;
+        line-height: 1.8;
+        max-width: 700px;
+        font-weight: 400;
     }
 
     .btn-primary {
         @include btn-base;
         background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
         color: $white;
-        box-shadow: 0 4px 20px rgba(0, 167, 248, 0.3);
+        box-shadow: 0 6px 24px rgba(37, 99, 235, 0.4);
+        font-family: 'Inter', sans-serif;
 
         &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 167, 248, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.5);
+        }
+
+        &:active {
+            transform: translateY(-1px);
         }
 
         &.btn-arrow:hover {
@@ -187,12 +197,13 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
         .about-bg-accent {
             position: absolute;
-            top: -120px;
-            right: -120px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 167, 248, 0.08) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
             pointer-events: none;
+            animation: float 8s ease-in-out infinite;
         }
 
         .about-shell {
@@ -212,16 +223,17 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
             .about-frame {
                 position: relative;
-                border-radius: 24px;
+                border-radius: 20px;
                 overflow: hidden;
-                box-shadow: 0 32px 64px rgba(10, 22, 40, 0.16);
+                box-shadow: 0 40px 80px rgba(37, 99, 235, 0.15);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
                 &::before {
                     content: '';
                     position: absolute;
                     inset: 0;
-                    border: 3px solid rgba(255, 255, 255, 0.25);
-                    border-radius: 24px;
+                    border: 2px solid rgba(37, 99, 235, 0.2);
+                    border-radius: 20px;
                     z-index: 1;
                     pointer-events: none;
                 }
@@ -231,6 +243,11 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                     aspect-ratio: 5 / 4;
                     object-fit: cover;
                     display: block;
+                    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                &:hover img {
+                    transform: scale(1.03);
                 }
             }
 
@@ -247,25 +264,34 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                 .about-stat-pill {
                     flex: 1;
                     background: $white;
-                    border-radius: 14px;
-                    padding: 0.9rem 1rem;
+                    border-radius: 16px;
+                    padding: 1.1rem 1.2rem;
                     text-align: center;
-                    box-shadow: 0 12px 32px rgba(10, 22, 40, 0.12);
-                    border: 1px solid rgba(0, 167, 248, 0.15);
+                    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.12);
+                    border: 1px solid rgba(37, 99, 235, 0.1);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
+                    }
 
                     strong {
                         display: block;
-                        font-size: 1.35rem;
+                        font-size: 1.5rem;
                         color: $primary;
                         line-height: 1.2;
+                        font-weight: 800;
+                        font-family: 'Poppins', sans-serif;
                     }
 
                     span {
                         font-size: 0.65rem;
                         color: $text-muted;
                         text-transform: uppercase;
-                        letter-spacing: 0.07em;
+                        letter-spacing: 0.08em;
                         font-weight: 600;
+                        margin-top: 0.35rem;
                     }
                 }
             }
@@ -321,8 +347,8 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
                     &:hover {
                         transform: translateY(-4px);
-                        box-shadow: 0 16px 40px rgba(0, 167, 248, 0.1);
-                        border-color: rgba(0, 167, 248, 0.25);
+                        box-shadow: 0 16px 40px rgba(37, 99, 235, 0.1);
+                        border-color: rgba(37, 99, 235, 0.25);
 
                         &::after {
                             transform: scaleX(1);
@@ -356,7 +382,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
     // Services Section
     .services-section {
         position: relative;
-        background: $dark;
+        background: linear-gradient(180deg, $dark 0%, $dark-light 100%);
         color: $white;
         overflow: hidden;
 
@@ -364,8 +390,8 @@ $section-padding: clamp(3rem, 8vw, 6rem);
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(circle at 15% 20%, rgba(0, 167, 248, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(0, 124, 243, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 184, 255, 0.08) 0%, transparent 40%);
             pointer-events: none;
         }
 
@@ -375,16 +401,17 @@ $section-padding: clamp(3rem, 8vw, 6rem);
         }
 
         .section-tag {
-            background: rgba(0, 167, 248, 0.15);
-            color: lighten($primary, 10%);
+            background: rgba(37, 99, 235, 0.15);
+            color: $secondary;
         }
 
         .section-header h2 {
             color: $white;
+            font-family: 'Poppins', sans-serif;
         }
 
         .section-lead {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.75);
         }
 
         .solutions-showcase {
@@ -402,23 +429,23 @@ $section-padding: clamp(3rem, 8vw, 6rem);
         }
 
         .solution-tile {
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(15, 40, 71, 0.5);
+            border: 1px solid rgba(37, 99, 235, 0.15);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
             &:hover {
-                transform: translateY(-8px);
-                border-color: rgba(0, 167, 248, 0.4);
-                box-shadow: 0 28px 56px rgba(0, 0, 0, 0.35);
+                transform: translateY(-10px);
+                border-color: rgba(0, 184, 255, 0.5);
+                box-shadow: 0 32px 72px rgba(37, 99, 235, 0.25);
 
                 .solution-photo img {
-                    transform: scale(1.06);
+                    transform: scale(1.08);
                 }
 
                 .solution-cta {
-                    color: lighten($primary, 12%);
+                    color: $secondary;
                     gap: 0.75rem;
                 }
             }
@@ -455,7 +482,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                     font-size: 0.75rem;
                     font-weight: 800;
                     border-radius: 50%;
-                    box-shadow: 0 4px 12px rgba(0, 167, 248, 0.5);
+                    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.5);
                 }
             }
 
@@ -513,52 +540,57 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
         .why-card {
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 2.25rem 1.75rem;
             border-radius: 16px;
-            background: #f8fafc;
-            border: 1px solid #e8edf2;
-            transition: all 0.4s ease;
+            background: $white;
+            border: 1px solid rgba(37, 99, 235, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
 
             &:hover {
                 background: $white;
-                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-                transform: translateY(-6px);
+                box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
+                transform: translateY(-8px);
+                border-color: rgba(37, 99, 235, 0.15);
 
                 .why-icon {
                     background: linear-gradient(135deg, $primary, $primary-dark);
                     color: $white;
-                    transform: scale(1.1);
+                    transform: scale(1.15);
+                    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
                 }
             }
 
             .why-icon {
-                width: 60px;
-                height: 60px;
-                margin: 0 auto 1.2rem;
+                width: 64px;
+                height: 64px;
+                margin: 0 auto 1.5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 border-radius: 16px;
-                background: rgba(0, 167, 248, 0.1);
+                background: rgba(37, 99, 235, 0.08);
                 color: $primary;
-                transition: all 0.4s ease;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
                 svg {
-                    width: 28px;
-                    height: 28px;
+                    width: 32px;
+                    height: 32px;
+                    stroke-width: 1.5px;
                 }
             }
 
             h3 {
-                font-size: 1rem;
+                font-size: 1.05rem;
                 color: $text-dark;
-                margin-bottom: 0.5em;
+                margin-bottom: 0.6em;
+                font-weight: 600;
             }
 
             p {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 color: $text-muted;
-                line-height: 1.6;
+                line-height: 1.7;
             }
         }
     }
@@ -566,14 +598,14 @@ $section-padding: clamp(3rem, 8vw, 6rem);
     // Consulting Section
     .consulting-section {
         position: relative;
-        background: linear-gradient(180deg, $white 0%, #f0f7fc 100%);
+        background: linear-gradient(180deg, $white 0%, #f0f4ff 100%);
         overflow: hidden;
 
         .consulting-bg {
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(135deg, transparent 60%, rgba(0, 167, 248, 0.04) 100%);
+                linear-gradient(135deg, transparent 60%, rgba(37, 99, 235, 0.05) 100%);
             pointer-events: none;
         }
 
@@ -599,7 +631,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                 left: 10%;
                 right: 10%;
                 height: 2px;
-                background: linear-gradient(90deg, transparent, rgba(0, 167, 248, 0.25), transparent);
+                background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.25), transparent);
                 pointer-events: none;
 
                 @media (max-width: 968px) {
@@ -610,21 +642,21 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
         .consulting-panel {
             background: $white;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #e8edf2;
-            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.04);
-            transition: all 0.4s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
 
             &:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 24px 48px rgba(0, 167, 248, 0.12);
-                border-color: rgba(0, 167, 248, 0.3);
+                transform: translateY(-10px);
+                box-shadow: 0 28px 60px rgba(37, 99, 235, 0.15);
+                border-color: rgba(37, 99, 235, 0.2);
 
                 .consulting-panel-media img {
-                    transform: scale(1.05);
+                    transform: scale(1.08);
                 }
             }
 
@@ -642,19 +674,20 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
                 .consulting-step {
                     position: absolute;
-                    top: 1rem;
-                    left: 1rem;
-                    width: 44px;
-                    height: 44px;
+                    top: 1.2rem;
+                    left: 1.2rem;
+                    width: 48px;
+                    height: 48px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     background: $white;
                     color: $primary;
-                    font-size: 0.8rem;
+                    font-size: 0.85rem;
                     font-weight: 800;
-                    border-radius: 50%;
-                    box-shadow: 0 4px 16px rgba(10, 22, 40, 0.15);
+                    border-radius: 12px;
+                    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.2);
+                    font-family: 'Poppins', sans-serif;
                 }
             }
 
@@ -689,7 +722,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
     // Projects Section
     .projects-section {
-        background: #f0f4f8;
+        background: #f8fafc;
 
         .projects-grid {
             display: grid;
@@ -709,15 +742,17 @@ $section-padding: clamp(3rem, 8vw, 6rem);
             background: $white;
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #e8edf2;
-            transition: all 0.35s ease;
+            border: 1px solid rgba(37, 99, 235, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.04);
 
             &:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 16px 40px rgba(10, 22, 40, 0.12);
+                transform: translateY(-8px);
+                box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
+                border-color: rgba(37, 99, 235, 0.15);
 
                 .project-image img {
-                    transform: scale(1.04);
+                    transform: scale(1.08);
                 }
             }
 
@@ -886,7 +921,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                 position: absolute;
                 inset: 0;
                 background:
-                    radial-gradient(circle at 20% 50%, rgba(0, 167, 248, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
                     radial-gradient(circle at 80% 50%, rgba(230, 57, 70, 0.1) 0%, transparent 50%);
             }
         }
@@ -919,7 +954,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                 align-items: center;
                 justify-content: center;
                 border-radius: 12px;
-                background: rgba(0, 167, 248, 0.15);
+                background: rgba(37, 99, 235, 0.15);
                 color: $primary;
 
                 svg {
@@ -963,7 +998,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                 position: absolute;
                 width: 300px;
                 height: 300px;
-                background: rgba(0, 167, 248, 0.2);
+                background: rgba(37, 99, 235, 0.2);
                 border-radius: 50%;
                 filter: blur(80px);
                 top: -100px;
@@ -1097,7 +1132,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                 right: -60px;
                 width: 200px;
                 height: 200px;
-                background: rgba(0, 167, 248, 0.15);
+                background: rgba(37, 99, 235, 0.15);
                 border-radius: 50%;
                 filter: blur(40px);
             }
@@ -1145,7 +1180,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
                     &:hover:not(.static) {
                         background: rgba(255, 255, 255, 0.14);
-                        border-color: rgba(0, 167, 248, 0.4);
+                        border-color: rgba(37, 99, 235, 0.4);
                         transform: translateX(4px);
                     }
 
@@ -1163,8 +1198,8 @@ $section-padding: clamp(3rem, 8vw, 6rem);
 
                 span {
                     padding: 0.4em 0.9em;
-                    background: rgba(0, 167, 248, 0.2);
-                    border: 1px solid rgba(0, 167, 248, 0.35);
+                    background: rgba(37, 99, 235, 0.2);
+                    border: 1px solid rgba(37, 99, 235, 0.35);
                     border-radius: 50px;
                     font-size: 0.72rem;
                     font-weight: 600;
@@ -1239,11 +1274,11 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                             padding: 1em 2em;
                             border-radius: 12px;
                             font-size: 1rem;
-                            box-shadow: 0 6px 24px rgba(0, 167, 248, 0.35);
+                            box-shadow: 0 6px 24px rgba(37, 99, 235, 0.35);
 
                             &:hover {
                                 transform: translateY(-2px);
-                                box-shadow: 0 10px 32px rgba(0, 167, 248, 0.45);
+                                box-shadow: 0 10px 32px rgba(37, 99, 235, 0.45);
                             }
                         }
 
@@ -1258,7 +1293,7 @@ $section-padding: clamp(3rem, 8vw, 6rem);
                                 outline: none;
                                 border-color: $primary !important;
                                 background: $white !important;
-                                box-shadow: 0 0 0 4px rgba(0, 167, 248, 0.1);
+                                box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
                             }
                         }
 

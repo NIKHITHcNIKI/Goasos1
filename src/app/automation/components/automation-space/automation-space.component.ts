@@ -50,4 +50,60 @@ export class AutomationSpaceComponent implements OnInit, OnDestroy {
   public CaptureClicks(cta: string): void {
     this.analytics.HomeCtaEvent(cta);
   }
+
+  public solutions = [
+    {
+      title: 'Bed with Storage and iDesk Combination',
+      subtitle: 'The ultimate home office solution for compact spaces',
+      description: 'Combines a bed, foldable desk, and under-bed storage (ideal for laptops, books, or seasonal clothing).',
+      sizes: ['Single bed with iDesk (90cm x 190cm)', 'Queen size with iDesk (150cm x 200cm)', 'King size with iDesk (180cm x 200cm)']
+    },
+    {
+      title: 'Multi-Functional Bed with Storage',
+      subtitle: 'Maximize bedroom space with smart storage solutions',
+      description: 'Our space-saving beds with integrated storage are engineered to eliminate the need for additional storage furniture, freeing up valuable floor space in your bedroom.',
+      sizes: ['Single bed with storage (90cm x 190cm)', 'Queen size with storage (150cm x 200cm)', 'King size with storage (180cm x 200cm)']
+    },
+    {
+      title: 'Bed with Storage and Sofa Combination',
+      subtitle: 'Three-in-one solution: bed, storage, and seating',
+      description: 'Turns into a stylish sofa by day, becomes a cozy bed by night—with smart storage built-in.',
+      sizes: ['Single bed with sofa (90cm x 190cm)', 'Queen size with sofa (150cm x 200cm)', 'King size with sofa (180cm x 200cm)']
+    }
+  ];
+
+  public getServiceImage(index: number): string {
+    const images = [
+      'url(/images/furniture/bed-storage-desk.png)',
+      'url(/images/furniture/multifunctional-bed-storage.png)',
+      'url(/images/furniture/sofa-bed-storage.png)'
+    ];
+    return images[index % images.length];
+  }
+
+  public getSolutionTitle(index: number): string {
+    return this.solutions[index]?.title || '';
+  }
+
+  public getSolutionSubtitle(index: number): string {
+    return this.solutions[index]?.subtitle || '';
+  }
+
+  public getSolutionDescription(index: number): string {
+    return this.solutions[index]?.description || '';
+  }
+
+  public getSolutionSizes(index: number): string[] {
+    return this.solutions[index]?.sizes || [];
+  }
+
+  public getHomeIcon(homeType: string): string {
+    const icons: { [key: string]: string } = {
+      'Apartments and Flats': '🏙️',
+      'Independent Houses': '🏠',
+      'Studio Living': '🎨',
+      'Growing Families': '👨‍👩‍👧‍👦'
+    };
+    return icons[homeType] || '🏠';
+  }
 }

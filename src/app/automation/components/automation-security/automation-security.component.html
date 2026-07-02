@@ -1,4 +1,6 @@
 <app-hero [showCLient]="true"
+    [premium]="true"
+    [backgroundImage]="'/images/security/hero-cctv-monitoring.png'"
     p="Whether it's your home, office or industrial plant—security starts with smart surveillance. Our cutting-edge CCTV cameras and centralized video surveillance systems offer real-time monitoring, remote access, and AI-powered alerts to protect what matters most. Expert installation across Bangalore, Bhubaneswar and Cuttack."
     h1="Centralized Video Surveillance Systems & CCTV Installation Services in Bangalore, Bhubaneswar & Cuttack">
     <div class="actions" actions>
@@ -6,50 +8,100 @@
             [href]="cont.PopulateContactLocation()">Request Security Assessment&nbsp;&nbsp;&rarr;</a>
     </div>
 </app-hero>
+<section class="content-split">
+    <div class="content-text">
+        <h2>Our Security Solutions</h2>
+        <p>At GOAS, we deliver comprehensive CCTV and video surveillance systems that combine advanced technology with expert service. Our solutions protect your assets 24/7 with intelligent monitoring, real-time alerts, and cloud-based accessibility.</p>
+        <ul class="card-list">
+            <li>High-resolution 4K and HD camera systems</li>
+            <li>AI-powered motion detection and alerts</li>
+            <li>Cloud-based and local storage options</li>
+            <li>Mobile app control from anywhere</li>
+            <li>24/7 professional monitoring available</li>
+        </ul>
+    </div>
+    <div class="content-images">
+        <div class="image-card">
+            <img loading="lazy" src="/images/security/information-cctv-installation.png" alt="Professional CCTV camera installation">
+        </div>
+        <div class="image-card">
+            <img loading="lazy" src="/images/security/information-monitoring-center.png" alt="Security monitoring center with video walls">
+        </div>
+        <div class="image-card">
+            <img loading="lazy" src="/images/security/information-ai-dashboard.png" alt="AI-powered surveillance analytics dashboard">
+        </div>
+    </div>
+</section>
 <section class="types">
-    <h2>Our Security Solutions</h2>
-    <div class="cards">
-        <mat-card *ngFor="let c of types">
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>{{c.title}}</h3>
-                </mat-card-title>
-            </mat-card-header>
-            <img loading="lazy" mat-card-image [src]="'/images/automation/security/'+ helper.GetFileName(c.title)+'.png'" [alt]="c.title">
-            <mat-card-content>
-                <ul class="card-list">
-                    <ng-container *ngFor="let point of c.points">
-                        <li>{{point}}</li>
-                    </ng-container>
-                </ul>
-            </mat-card-content>
-        </mat-card>
+    <h2>Security Camera Solutions</h2>
+    <div class="type" *ngFor="let c of types; let i = index">
+        <div class="card-image" [style.background-image]="getServiceImage(i)">
+            <div class="card-overlay"></div>
+            <div class="badge">{{c.title}}</div>
+        </div>
+        <div class="content">
+            <h3>{{c.title}}</h3>
+            <ul class="card-list">
+                <ng-container *ngFor="let point of c.points">
+                    <li>{{point}}</li>
+                </ng-container>
+            </ul>
+        </div>
     </div>
     <a (click)="CaptureClicks('industry_automation_assesment')" [href]="cont.PopulateContactLocation()"
         class="highlight-text">Request a Custom Quote</a>
 </section>
 <section class="indus">
     <h2>Industry-Specific CCTV Installation Services</h2>
-    <ul class="strong-bullet-points">
-        <li><strong>Homes & Apartments</strong>Door cameras, perimeter alerts</li>
-        <li><strong>Corporate Offices</strong>Lobby surveillance, employee tracking, server room security</li>
-        <li><strong>Retail Stores & Malls</strong>Theft prevention, customer footfall analysis</li>
-        <li><strong>Factories & Warehouses</strong>Asset protection, entry/exit tracking, plant floor visibility</li>
-        <li><strong>Hospitals & Schools</strong>Real-time emergency alerts, visitor management</li>
-    </ul>
+    <div class="industries-grid">
+        <div class="industry-card">
+            <div class="industry-icon">🏠</div>
+            <h3>Homes & Apartments</h3>
+            <p>Door cameras, perimeter alerts</p>
+        </div>
+        <div class="industry-card">
+            <div class="industry-icon">🏢</div>
+            <h3>Corporate Offices</h3>
+            <p>Lobby surveillance, employee tracking, server room security</p>
+        </div>
+        <div class="industry-card">
+            <div class="industry-icon">🛍️</div>
+            <h3>Retail Stores & Malls</h3>
+            <p>Theft prevention, customer footfall analysis</p>
+        </div>
+        <div class="industry-card">
+            <div class="industry-icon">🏭</div>
+            <h3>Factories & Warehouses</h3>
+            <p>Asset protection, entry/exit tracking, plant floor visibility</p>
+        </div>
+        <div class="industry-card">
+            <div class="industry-icon">🏥</div>
+            <h3>Hospitals & Schools</h3>
+            <p>Real-time emergency alerts, visitor management</p>
+        </div>
+    </div>
 </section>
 <app-service-areas header="We provide professional security camera installation and maintenance services throughout:"
     bangalore="and surrounding areas" bhubaneshwar="and surrounding areas"
     cuttack="and surrounding areas"></app-service-areas>
 <section class="works">
-    <h2>How it works</h2>
-    <div class="desc">
-        <p>3 Steps to Complete Security:</p>
-        <ol>
-            <li>Consultation: Assess your needs</li>
-            <li>Installation: Done in 6 hours by certified technicians.</li>
-            <li>Training: Learn to use the app</li>
-        </ol>
+    <h2>How it Works</h2>
+    <div class="steps-grid">
+        <div class="step-card">
+            <div class="step-badge">01</div>
+            <h3>Consultation</h3>
+            <p>Assess your security needs and design a custom surveillance solution for your specific environment.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-badge">02</div>
+            <h3>Installation</h3>
+            <p>Professional installation completed in 6 hours by certified technicians with minimal disruption.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-badge">03</div>
+            <h3>Training</h3>
+            <p>Comprehensive training on system operation, mobile app access, and cloud monitoring features.</p>
+        </div>
     </div>
 </section>
 <app-contact h2="Ready to Upgrade Your Security?" />

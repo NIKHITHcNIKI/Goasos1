@@ -1,10 +1,12 @@
-$primary-color: #00a7f8;
-$accent-red: #e63946;
+$primary-color: #2563eb;
+$secondary-color: #00b8ff;
+$accent-red: #ef4444;
 $bg-color: white;
-$hero-bg: #a1cfe48a;
-$dark-bg: #0a1628;
-$glass-bg: rgba(255, 255, 255, 0.08);
-$glass-border: rgba(255, 255, 255, 0.15);
+$hero-bg: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+$dark-bg: #081b3a;
+$dark-light: #0f2847;
+$glass-bg: rgba(255, 255, 255, 0.12);
+$glass-border: rgba(37, 99, 235, 0.2);
 
 @mixin sec-cta {
     color: $primary-color;
@@ -27,10 +29,10 @@ section.block {
     }
 
     &.hero {
-        padding-bottom: 2em;
+        padding-bottom: 3em;
         margin-bottom: 0;
-        min-height: 50vh;
-        background-color: $hero-bg;
+        min-height: 55vh;
+        background: $hero-bg;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -71,18 +73,23 @@ section.block {
 
         > h1 {
             width: 55ch;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
 
             @media (max-width: 938px) {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             @media (max-width: 677px) {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             @media (max-width: 567px) {
                 margin: 0;
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
         }
 
@@ -134,14 +141,16 @@ section.block {
 
                 &.pri {
                     color: $bg-color;
-                    background-color: $primary-color;
+                    background: linear-gradient(135deg, $primary-color 0%, #1e40af 100%);
                     border: 1px solid $primary-color;
-                    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s ease;
+                    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 
                     &:hover {
-                        background-color: darken($primary-color, 8%);
+                        background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
                         color: $bg-color;
-                        transform: translateY(-2px);
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
                     }
                 }
 
@@ -189,7 +198,7 @@ section.block {
         &.hero-premium {
             min-height: 100vh;
             padding: 0;
-            background-color: $dark-bg;
+            background: linear-gradient(180deg, $dark-bg 0%, $dark-light 100%);
             color: #fff;
             justify-content: center;
             align-items: center;
@@ -210,8 +219,8 @@ section.block {
                     position: absolute;
                     inset: 0;
                     background:
-                        linear-gradient(135deg, rgba(10, 22, 40, 0.92) 0%, rgba(10, 22, 40, 0.75) 40%, rgba(0, 167, 248, 0.15) 100%),
-                        linear-gradient(to top, rgba(10, 22, 40, 0.95) 0%, transparent 50%);
+                        linear-gradient(135deg, rgba(8, 27, 58, 0.92) 0%, rgba(8, 27, 58, 0.75) 40%, rgba(37, 99, 235, 0.1) 100%),
+                        linear-gradient(to top, rgba(8, 27, 58, 0.95) 0%, transparent 50%);
                 }
 
                 .hero-particles {
@@ -250,7 +259,7 @@ section.block {
                     &.hero-glow-1 {
                         width: 400px;
                         height: 400px;
-                        background: rgba(0, 167, 248, 0.2);
+                        background: rgba(37, 99, 235, 0.15);
                         top: 10%;
                         right: 10%;
                         animation: pulseGlow 6s ease-in-out infinite;
@@ -259,7 +268,7 @@ section.block {
                     &.hero-glow-2 {
                         width: 300px;
                         height: 300px;
-                        background: rgba(230, 57, 70, 0.12);
+                        background: rgba(239, 68, 68, 0.1);
                         bottom: 20%;
                         left: 5%;
                         animation: pulseGlow 8s ease-in-out infinite reverse;
@@ -338,7 +347,7 @@ section.block {
                         transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
                         &.pri {
-                            background: linear-gradient(135deg, $primary-color 0%, #007cf3 100%);
+                            background: linear-gradient(135deg, $primary-color 0%, #1e40af 100%);
                             border: none;
                             box-shadow: 0 4px 20px rgba(0, 167, 248, 0.4);
 
