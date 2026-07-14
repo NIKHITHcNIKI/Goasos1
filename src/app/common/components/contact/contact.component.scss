@@ -10,7 +10,7 @@ section#contact-section {
         color: var(--color-text-primary);
 
         @media (prefers-color-scheme: dark) {
-            color: #f1f5f9;
+            color: #0f172a;
         }
     }
     > h3 {
@@ -19,7 +19,7 @@ section#contact-section {
         color: var(--color-text-primary);
 
         @media (prefers-color-scheme: dark) {
-            color: #f1f5f9;
+            color: #0f172a;
         }
     }
     > p {
@@ -27,7 +27,7 @@ section#contact-section {
         color: var(--color-text-secondary);
 
         @media (prefers-color-scheme: dark) {
-            color: #cbd5e1;
+            color: #64748b;
         }
     }
     > form {
@@ -42,12 +42,11 @@ section#contact-section {
         padding: 1em;
 
         @media (prefers-color-scheme: dark) {
-            background-color: #1e293b;
-            color: #f1f5f9;
+            background-color: #fff;
+            color: #0f172a;
             box-shadow:
-                0px 2px 1px -1px rgba(0, 0, 0, 0.5),
-                0px 1px 1px 0px rgba(0, 0, 0, 0.4),
-                0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+                0px 2px 8px rgba(0, 0, 0, 0.3),
+                0px 4px 16px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width:885px) {
@@ -66,7 +65,7 @@ section#contact-section {
                 color: var(--color-text-primary);
 
                 @media (prefers-color-scheme: dark) {
-                    color: #f1f5f9;
+                    color: #0f172a;
                 }
 
                 @media (max-width: 565px) {
@@ -91,9 +90,9 @@ section#contact-section {
                     border: 1px solid #ddd;
 
                     @media (prefers-color-scheme: dark) {
-                        background-color: #0f172a;
-                        color: #f1f5f9;
-                        border: 1px solid #475569;
+                        background-color: #fff;
+                        color: #0f172a;
+                        border: 1px solid #cbd5e1;
                     }
                 }
                 > input::placeholder,

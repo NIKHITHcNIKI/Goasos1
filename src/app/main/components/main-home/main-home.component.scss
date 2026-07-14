@@ -90,7 +90,7 @@ $section-padding: clamp(4rem, 10vw, 7rem);
             line-height: 1.2;
 
             @media (prefers-color-scheme: dark) {
-                color: #f1f5f9;
+                color: #0f172a;
             }
         }
     }
@@ -103,7 +103,7 @@ $section-padding: clamp(4rem, 10vw, 7rem);
         font-weight: 400;
 
         @media (prefers-color-scheme: dark) {
-            color: #cbd5e1;
+            color: #475569;
         }
     }
 
@@ -314,7 +314,7 @@ $section-padding: clamp(4rem, 10vw, 7rem);
                 line-height: 1.2;
 
                 @media (prefers-color-scheme: dark) {
-                    color: #f1f5f9;
+                    color: #0f172a;
                 }
             }
 
@@ -343,6 +343,11 @@ $section-padding: clamp(4rem, 10vw, 7rem);
                     transition: all 0.35s ease;
                     position: relative;
                     overflow: hidden;
+
+                    @media (prefers-color-scheme: dark) {
+                        background: #fff;
+                        border-color: #e0e7ff;
+                    }
 
                     &::after {
                         content: '';
@@ -380,7 +385,7 @@ $section-padding: clamp(4rem, 10vw, 7rem);
                         margin: 0 0 0.35em;
 
                         @media (prefers-color-scheme: dark) {
-                            color: #f1f5f9;
+                            color: #0f172a;
                         }
                     }
 
@@ -391,7 +396,7 @@ $section-padding: clamp(4rem, 10vw, 7rem);
                         line-height: 1.55;
 
                         @media (prefers-color-scheme: dark) {
-                            color: #cbd5e1;
+                            color: #64748b;
                         }
                     }
                 }
