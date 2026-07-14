@@ -1,8 +1,15 @@
 $breaking-point: 1376px;
 $bg-color: rgb(241, 244, 247);
+$bg-color-dark: #0f172a;
 
 div.main-wrapper {
     overflow: hidden;
+    background: $bg-color;
+    
+    @media (prefers-color-scheme: dark) {
+        background: $bg-color-dark;
+    }
+    
     > div.main-header {
         margin-bottom: 10px;
     }
@@ -30,6 +37,12 @@ div.main-wrapper {
                 z-index: 3;
                 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
                 transition: left 0.6s ease-in-out;
+                
+                @media (prefers-color-scheme: dark) {
+                    background-color: $bg-color-dark;
+                    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8);
+                }
+                
                 &.show {
                     left: 0;
                 }
@@ -43,6 +56,11 @@ div.main-wrapper {
                     font-size: 1.4em;
                     border: transparent;
                     outline: none;
+                    
+                    @media (prefers-color-scheme: dark) {
+                        background: $bg-color-dark;
+                        color: #ffffff;
+                    }
                 }
             }
         }

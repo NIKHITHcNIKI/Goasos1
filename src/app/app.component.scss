@@ -1,8 +1,16 @@
 $bg-color: #f0f4f8;
 
+@media (prefers-color-scheme: dark) {
+  $bg-color: #0f172a;
+}
+
 div.main-wrapper {
     min-height: 100vh;
     background: $bg-color;
+    
+    @media (prefers-color-scheme: dark) {
+        background: #0f172a;
+    }
 
     > header.main-header {
         position: sticky;

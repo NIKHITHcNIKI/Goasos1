@@ -256,9 +256,41 @@ $secondary-color: #00b8ff;
 // Dark mode support (optional)
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-light-bg: #1e293b;
-    --color-text-primary: #f1f5f9;
-    --color-text-secondary: #cbd5e1;
+    --color-light-bg: #0f172a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e2e8f0;
+    --color-dark: #1e293b;
+    --color-border: #334155;
+  }
+  
+  body {
+    background-color: var(--color-light-bg);
+    color: var(--color-text-primary);
+  }
+  
+  .premium-card {
+    background: #1e293b;
+    color: #ffffff;
+    
+    &:hover {
+      background: #334155;
+    }
+  }
+  
+  .glass-effect-dark {
+    color: #ffffff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+  }
+  
+  .subheading {
+    color: var(--color-text-secondary);
+  }
+  
+  a {
+    color: #60a5fa;
   }
 }
 @mixin list-spacing {
