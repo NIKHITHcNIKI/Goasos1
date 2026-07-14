@@ -7,6 +7,12 @@ $text-dark: #0f172a;
 $text-muted: #64748b;
 $white: #ffffff;
 
+// Dark mode colors
+$dark-bg: #0f172a;
+$dark-bg-secondary: #1e293b;
+$dark-text: #ffffff;
+$dark-text-muted: #cbd5e1;
+
 // ANIMATIONS
 @keyframes fadeInUp {
     from {
@@ -45,20 +51,36 @@ section {
     
     &:nth-of-type(1) {
         background: linear-gradient(180deg, $white 0%, #f0f4ff 100%);
+        
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(180deg, $dark-bg 0%, #1a2f4a 100%);
+        }
     }
     
     &:nth-of-type(2) {
         background: linear-gradient(180deg, $white 0%, #f0f9ff 100%);
+        
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(180deg, $dark-bg 0%, #1a2f4a 100%);
+        }
     }
     
     &:nth-of-type(3) {
         background: linear-gradient(180deg, $light-bg 0%, #e0f2fe 100%);
+        
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(180deg, $dark-bg-secondary 0%, #1a2f4a 100%);
+        }
     }
     
     &:nth-of-type(4),
     &:nth-of-type(5),
     &:nth-of-type(6) {
         background: $white;
+        
+        @media (prefers-color-scheme: dark) {
+            background: $dark-bg;
+        }
     }
 }
 
@@ -89,6 +111,12 @@ section {
         box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         animation: fadeInUp 0.8s ease-out forwards;
+        
+        @media (prefers-color-scheme: dark) {
+            background: rgba(30, 41, 59, 0.95);
+            border-color: rgba(37, 99, 235, 0.15);
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
+        }
         
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) {
@@ -129,10 +157,20 @@ section {
                 color: $text-dark;
                 margin-bottom: 1.5rem;
                 font-family: 'Poppins', sans-serif;
+                
+                @media (prefers-color-scheme: dark) {
+                    color: $dark-text;
+                }
             }
             
             .benefit-list {
                 margin-bottom: 2rem;
+                
+                li {
+                    @media (prefers-color-scheme: dark) {
+                        color: $dark-text-muted;
+                    }
+                }
             }
         }
     }
@@ -206,6 +244,10 @@ section {
     color: $text-dark;
     letter-spacing: -0.02em;
     margin: 0;
+    
+    @media (prefers-color-scheme: dark) {
+        color: $dark-text;
+    }
 }
 
 .benefit-list {
@@ -220,6 +262,10 @@ section {
         margin-bottom: 1.25rem;
         padding-left: 1.75rem;
         position: relative;
+        
+        @media (prefers-color-scheme: dark) {
+            color: $dark-text-muted;
+        }
         
         &::before {
             content: "✓";
