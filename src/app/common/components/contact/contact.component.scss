@@ -172,4 +172,92 @@ section#contact-section {
             }
         }
     }
+
+    // You May Also Be Interested In Section
+    > .you-may-interested {
+        width: 95%;
+        margin: 2em auto 1em;
+        padding: 1.5em;
+        background-color: #f0f4f8;
+        border-radius: 4px;
+
+        @media (prefers-color-scheme: dark) {
+            background-color: #1e293b;
+        }
+
+        @media (max-width: 885px) {
+            width: 100%;
+        }
+
+        > h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 1.5em;
+            text-align: left;
+
+            @media (prefers-color-scheme: dark) {
+                color: #0f172a;
+            }
+        }
+
+        > .interested-card {
+            padding: 1.25em;
+            margin-bottom: 1em;
+            background-color: #fff;
+            border-radius: 4px;
+            border-bottom: 3px solid #e0e7ff;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #fff;
+                border-bottom-color: #e0e7ff;
+            }
+
+            > h3 {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0 0 0.5em;
+
+                @media (prefers-color-scheme: dark) {
+                    color: #0f172a;
+                }
+            }
+
+            > p {
+                font-size: 0.9rem;
+                color: #64748b;
+                margin: 0 0 1em;
+                line-height: 1.6;
+
+                @media (prefers-color-scheme: dark) {
+                    color: #64748b;
+                }
+            }
+
+            > .cta-link {
+                color: $pri-color;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #1e40af;
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    color: $pri-color;
+
+                    &:hover {
+                        color: #1e40af;
+                    }
+                }
+            }
+        }
+
+        > .interested-card:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
