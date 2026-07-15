@@ -92,11 +92,14 @@
                         (click)="analytics.HomeCtaEvent(service.analyticsKey)">
                         <div class="solution-photo">
                             <img [src]="service.image" [alt]="service.title" loading="lazy">
+                            <div class="overlay"></div>
                             <span class="solution-num">{{ (i + 1) | number:'2.0-0' }}</span>
                         </div>
                         <div class="solution-info">
-                            <h3>{{service.title}}</h3>
-                            <p>{{service.description}}</p>
+                            <div>
+                                <h3>{{service.title}}</h3>
+                                <p>{{service.description}}</p>
+                            </div>
                             <span class="solution-cta">{{service.cta}}&nbsp;&nbsp;&rarr;</span>
                         </div>
                     </a>

@@ -442,100 +442,183 @@ $section-padding: clamp(4rem, 10vw, 7rem);
         .solutions-showcase {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
+            gap: 1.5rem;
 
             @media (max-width: 1024px) {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             @media (max-width: 640px) {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
         }
 
         .solution-tile {
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            background: rgba(15, 40, 71, 0.5);
-            border: 1px solid rgba(37, 99, 235, 0.15);
+            background: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            @media (max-width: 768px) {
+                height: 280px;
+            }
+
+            @media (max-width: 640px) {
+                height: 260px;
+            }
 
             &:hover {
-                transform: translateY(-10px);
-                border-color: rgba(0, 184, 255, 0.5);
-                box-shadow: 0 32px 72px rgba(37, 99, 235, 0.25);
+                transform: translateY(-8px);
+                box-shadow: 0 24px 48px rgba(37, 99, 235, 0.15);
 
-                .solution-photo img {
-                    transform: scale(1.08);
+                .solution-photo {
+                    .overlay {
+                        opacity: 0.5;
+                    }
+
+                    img {
+                        transform: scale(1.06);
+                    }
                 }
 
                 .solution-cta {
-                    color: $secondary;
+                    color: white;
+                    background: $primary;
                     gap: 0.75rem;
                 }
             }
 
             .solution-tile-link {
-                display: block;
+                display: flex;
+                flex-direction: column;
                 text-decoration: none;
                 color: inherit;
+                height: 100%;
             }
 
             .solution-photo {
                 position: relative;
-                aspect-ratio: 16 / 10;
+                flex-shrink: 0;
+                height: 160px;
                 overflow: hidden;
+
+                @media (max-width: 768px) {
+                    height: 140px;
+                }
+
+                @media (max-width: 640px) {
+                    height: 120px;
+                }
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    transition: transform 0.55s ease;
+                    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(8, 27, 58, 0.6) 100%);
+                    opacity: 0.4;
+                    transition: opacity 0.3s ease;
                 }
 
                 .solution-num {
                     position: absolute;
-                    top: 1rem;
-                    right: 1rem;
-                    width: 36px;
-                    height: 36px;
+                    top: 0.75rem;
+                    right: 0.75rem;
+                    width: 32px;
+                    height: 32px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     background: $primary;
-                    color: $white;
-                    font-size: 0.75rem;
+                    color: white;
+                    font-size: 0.65rem;
                     font-weight: 800;
                     border-radius: 50%;
-                    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.5);
+                    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+                    z-index: 2;
+
+                    @media (max-width: 768px) {
+                        width: 28px;
+                        height: 28px;
+                        font-size: 0.6rem;
+                    }
                 }
             }
 
             .solution-info {
-                padding: 1.35rem 1.5rem 1.5rem;
+                padding: 1rem 1.2rem;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                @media (max-width: 768px) {
+                    padding: 0.85rem 1rem;
+                }
 
                 h3 {
                     font-size: 1.05rem;
-                    margin: 0 0 0.45em;
-                    color: $white;
+                    margin: 0 0 0.25em;
+                    font-weight: 700;
+                    color: $text-dark;
                     line-height: 1.35;
+
+                    @media (max-width: 768px) {
+                        font-size: 0.95rem;
+                        margin: 0 0 0.2em;
+                    }
+
+                    @media (max-width: 640px) {
+                        font-size: 0.9rem;
+                    }
                 }
 
                 p {
-                    font-size: 0.88rem;
-                    color: rgba(255, 255, 255, 0.6);
-                    line-height: 1.6;
-                    margin: 0 0 1rem;
-                    min-height: 4.2em;
+                    font-size: 0.85rem;
+                    color: $text-muted;
+                    line-height: 1.5;
+                    margin: 0 0 0.75rem;
+                    flex: 1;
+
+                    @media (max-width: 768px) {
+                        font-size: 0.8rem;
+                        margin: 0 0 0.5rem;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
                 }
 
                 .solution-cta {
                     display: inline-flex;
                     align-items: center;
-                    font-size: 0.85rem;
+                    font-size: 0.8rem;
                     font-weight: 700;
                     color: $primary;
-                    transition: all 0.3s ease;
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                    gap: 0.4rem;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    text-decoration: none;
                 }
             }
         }

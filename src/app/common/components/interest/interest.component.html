@@ -1,16 +1,35 @@
 <section class="wrapper">
-    <h2>You May Also Be Interested In:</h2>
-    <div class="three-cards">
-        <mat-card *ngFor="let c of data">
-            <mat-card-header>
-                <h3>{{c.h3}}</h3>
-            </mat-card-header>
-            <mat-card-content style="flex:1;">
-                <p class="card-content">{{c.p}}</p>
-            </mat-card-content>
-            <mat-card-actions class="act">
-                <a class="card-action" [routerLink]="'/'+c.link">{{c.cta}}&nbsp;&rarr;</a>
-            </mat-card-actions>
-        </mat-card>
+    <div class="section-container">
+        <h2>You May Also Be Interested In</h2>
+        
+        <!-- Desktop Grid / Mobile Scroll -->
+        <div class="premium-cards-container">
+            <article class="premium-card" *ngFor="let c of data">
+                <a [routerLink]="'/'+c.link" class="premium-card-link">
+                    <!-- Background Image Layer -->
+                    <div class="card-image-wrapper">
+                        <img [src]="c.image" [alt]="c.h3" class="card-image" loading="lazy">
+                        <div class="card-overlay"></div>
+                    </div>
+
+                    <!-- Content Layer -->
+                    <div class="card-content-wrapper">
+                        <div class="card-icon" *ngIf="c.icon">
+                            <svg [innerHTML]="c.icon" class="icon-svg"></svg>
+                        </div>
+                        
+                        <h3 class="card-title">{{c.h3}}</h3>
+                        <p class="card-description">{{c.p}}</p>
+                        
+                        <span class="card-cta-button">
+                            <span class="cta-text">{{c.cta}}</span>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+        </div>
     </div>
 </section>
