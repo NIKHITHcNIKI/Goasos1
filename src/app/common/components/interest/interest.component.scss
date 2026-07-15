@@ -2,21 +2,104 @@ $pri-color: #2563eb;
 
 section.wrapper {
     margin-bottom: 1em;
+    padding: 2em 1em;
+    background-color: #f0f4f8;
+    border-radius: 4px;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #f0f4f8;
+    }
+
     > h2 {
         text-align: center;
         margin-bottom: 0.5em;
-    }
-    > div {
-        h3 {
-            margin-bottom: 0.5em;
+        color: #0f172a;
+        font-weight: 700;
+        font-size: 1.5rem;
+
+        @media (prefers-color-scheme: dark) {
+            color: #0f172a;
         }
-        .act {
-            padding-right: 1em;
-            a.card-action {
-                padding-left: 8px;
-                display: block;
-                color: $pri-color;
-                text-decoration: none;
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        @media (min-width: 769px) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2em;
+        }
+
+        mat-card {
+            background-color: #fff;
+            border-radius: 8px;
+            border-bottom: 3px solid #e0e7ff;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #fff;
+                border-bottom-color: #e0e7ff;
+            }
+
+            mat-card-header {
+                padding: 1.25em 1.25em 0.75em 1.25em;
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            h3 {
+                margin-bottom: 0.5em;
+                font-size: 1rem;
+                font-weight: 700;
+                color: #0f172a;
+
+                @media (prefers-color-scheme: dark) {
+                    color: #0f172a;
+                }
+            }
+
+            mat-card-content {
+                padding: 0 1.25em;
+
+                .card-content {
+                    color: #64748b;
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                    margin: 0;
+
+                    @media (prefers-color-scheme: dark) {
+                        color: #64748b;
+                    }
+                }
+            }
+
+            .act {
+                padding-right: 1em;
+                padding: 1em 1.25em;
+                border-top: none;
+
+                a.card-action {
+                    padding-left: 0;
+                    display: inline-block;
+                    color: $pri-color;
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #1e40af;
+                    }
+
+                    @media (prefers-color-scheme: dark) {
+                        color: $pri-color;
+
+                        &:hover {
+                            color: #1e40af;
+                        }
+                    }
+                }
             }
         }
     }
