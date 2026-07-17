@@ -1,14 +1,14 @@
-$glass-bg: rgba(255, 255, 255, 0.75);
-$glass-border: rgba(255, 255, 255, 0.2);
+$glass-bg: rgba(255, 255, 255, 0.85);
+$glass-border: rgba(255, 255, 255, 0.3);
 $shadow-color: rgba(0, 0, 0, 0.1);
 
 div.floating-action-bar {
     background: $glass-bg;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border: 1px solid $glass-border;
     border-radius: 9999px;
     padding: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
     
     > ul.action-buttons {
         display: flex;
@@ -17,7 +17,12 @@ div.floating-action-bar {
         list-style: none;
         margin: 0;
         padding: 0;
-        gap: 10px;
+        gap: 8px;
+        
+        @media (max-width: 600px) {
+            gap: 6px;
+            padding: 0;
+        }
         
         > li.action-item {
             margin: 0;
@@ -37,18 +42,48 @@ div.floating-action-bar {
                 user-select: none;
                 position: relative;
                 
+                @media (max-width: 600px) {
+                    width: 44px;
+                    height: 44px;
+                }
+                
+                @media (max-width: 480px) {
+                    width: 40px;
+                    height: 40px;
+                }
+                
                 .icon {
                     width: 24px;
                     height: 24px;
                     object-fit: contain;
                     display: block;
                     transition: transform 0.3s ease;
+                    
+                    @media (max-width: 600px) {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    
+                    @media (max-width: 480px) {
+                        width: 18px;
+                        height: 18px;
+                    }
                 }
                 
                 svg.icon {
                     width: 24px;
                     height: 24px;
                     color: #333;
+                    
+                    @media (max-width: 600px) {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    
+                    @media (max-width: 480px) {
+                        width: 18px;
+                        height: 18px;
+                    }
                 }
                 
                 .tooltip {
@@ -57,7 +92,7 @@ div.floating-action-bar {
                     left: 50%;
                     transform: translateX(-50%);
                     padding: 6px 12px;
-                    background: rgba(0, 0, 0, 0.8);
+                    background: rgba(0, 0, 0, 0.85);
                     color: white;
                     border-radius: 6px;
                     font-size: 12px;
@@ -67,6 +102,13 @@ div.floating-action-bar {
                     pointer-events: none;
                     transition: opacity 0.3s ease, transform 0.3s ease;
                     margin-bottom: 8px;
+                    z-index: 10;
+                    
+                    @media (max-width: 600px) {
+                        font-size: 11px;
+                        padding: 4px 10px;
+                        margin-bottom: 6px;
+                    }
                 }
             }
             

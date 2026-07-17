@@ -17,12 +17,18 @@ div.main-wrapper {
 
         > section.float-contact {
             position: fixed;
-            bottom: 0.5em;
+            bottom: 1em;
             right: 1.5em;
             z-index: 90;
 
-            @media (max-width: 648px) {
+            @media (max-width: 768px) {
+                bottom: 0.75em;
                 right: 0.75em;
+            }
+
+            @media (max-width: 480px) {
+                bottom: 0.5em;
+                right: 0.5em;
             }
         }
     }
