@@ -10,31 +10,67 @@ export class HeaderComponent {
   @ViewChild('nav') private nav!: ElementRef<HTMLElement>;
 
   public menuOpen = false;
+  public solutionsOpen = false;
 
-  public ShowHeaderMenu(): void {
-    this.menuOpen = true;
-    this.nav.nativeElement.classList.add('show');
+  public ToggleHeaderMenu(): void {
+    this.menuOpen = !this.menuOpen;
+
+    if (!this.menuOpen) {
+      this.solutionsOpen = false;
+    }
+
+    this.SyncBodyScroll();
+  }
+
+  public CloseHeaderMenu(): void {
+    this.menuOpen = false;
+    this.solutionsOpen = false;
+    this.SyncBodyScroll();
+  }
+
+  public ToggleSolutions(event: Event): void {
+    event.stopPropagation();
+    this.solutionsOpen = !this.solutionsOpen;
+  }
+
+  private SyncBodyScroll(): void {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    document.body.style.overflow = this.menuOpen ? 'hidden' : '';
   }
 
   @HostListener('document:click', ['$event'])
-  private HideHeaderMenu(event: MouseEvent): void {
-    const clickedElement = (event.target as HTMLElement);
-    const hamButton = this.closestParent(clickedElement, 'button.ham');
+  private HandleDocumentClick(event: MouseEvent): void {
+    if (!this.menuOpen || !this.nav) {
+      return;
+    }
 
-    if (!hamButton && this.nav) {
-      this.menuOpen = false;
-      this.nav.nativeElement.classList.remove('show');
+    const target = event.target as HTMLElement;
+    const clickedInsideNav = this.nav.nativeElement.contains(target);
+    const clickedHam = !!this.closestParent(target, 'button.ham');
+
+    if (!clickedInsideNav && !clickedHam) {
+      this.CloseHeaderMenu();
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  private HandleEscape(): void {
+    if (this.menuOpen) {
+      this.CloseHeaderMenu();
     }
   }
 
   private closestParent(element: HTMLElement, selector: string): HTMLElement | null {
-    let parent: HTMLElement | null = element.parentElement;
+    let current: HTMLElement | null = element;
 
-    while (parent) {
-      if (parent.matches(selector)) {
-        return parent;
+    while (current) {
+      if (current.matches && current.matches(selector)) {
+        return current;
       }
-      parent = parent.parentElement;
+      current = current.parentElement;
     }
 
     return null;

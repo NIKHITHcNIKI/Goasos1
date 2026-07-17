@@ -11,6 +11,7 @@ export class VideoDialogService {
     private currentRouteVideos: DialogVideoDetails[];
     private currentVideoSrcBehavior: BehaviorSubject<DialogVideoDetails | undefined>;
     private videoThumbnailsBehavior: BehaviorSubject<DialogVideoThumbnail[]>;
+    private currentIndexBehavior: BehaviorSubject<number>;
 
     constructor(private matDialog: MatDialog,
         private route: Router) {
@@ -18,6 +19,7 @@ export class VideoDialogService {
         this.currentVideoSrcBehavior =
             new BehaviorSubject<DialogVideoDetails | undefined>(undefined);
         this.videoThumbnailsBehavior = new BehaviorSubject<DialogVideoThumbnail[]>([]);
+        this.currentIndexBehavior = new BehaviorSubject<number>(0);
 
         route.events
             .pipe(filter(event => event instanceof NavigationEnd))
@@ -35,6 +37,10 @@ export class VideoDialogService {
         return this.videoThumbnailsBehavior.asObservable();
     }
 
+    public get CurrentVideoIndex$(): Observable<number> {
+        return this.currentIndexBehavior.asObservable();
+    }
+
     public PlayVideo(): void {
         const foundVideos = this.VideoBasedOnRoute();
         if (!!foundVideos) {
@@ -46,6 +52,7 @@ export class VideoDialogService {
         this.currentRouteVideos = videos.video;
         this.currentVideoSrcBehavior.next(this.currentRouteVideos[0]);
         this.videoThumbnailsBehavior.next(this.currentRouteVideos.map(v => v.ToThumbnail()));
+        this.currentIndexBehavior.next(0);
         this.matDialog.open(VideoDialogComponent);
     }
 
@@ -57,6 +64,7 @@ export class VideoDialogService {
 
         this.currentVideoSrcBehavior.next(this.currentRouteVideos[index]);
         this.videoThumbnailsBehavior.next(this.currentRouteVideos.map(v => v.ToThumbnail()));
+        this.currentIndexBehavior.next(index);
     }
 
     private VideoBasedOnRoute(): VideoMap | undefined {

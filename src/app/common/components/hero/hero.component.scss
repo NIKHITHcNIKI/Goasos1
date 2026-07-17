@@ -437,35 +437,6 @@ section.block {
                 }
             }
 
-            .hero-scroll-indicator {
-                position: absolute;
-                bottom: 2em;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 2;
-
-                > span {
-                    display: block;
-                    width: 24px;
-                    height: 40px;
-                    border: 2px solid rgba(255, 255, 255, 0.3);
-                    border-radius: 12px;
-                    position: relative;
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        top: 6px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 4px;
-                        height: 8px;
-                        background: $primary-color;
-                        border-radius: 2px;
-                        animation: scrollBounce 2s ease-in-out infinite;
-                    }
-                }
-            }
         }
     }
 }
@@ -495,9 +466,4 @@ section.block {
 @keyframes heroFadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-    50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
 }

@@ -253,13 +253,16 @@ $secondary-color: #00b8ff;
   }
 }
 
-// Dark mode support (optional)
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-light-bg: #1e293b;
-    --color-text-primary: #f1f5f9;
-    --color-text-secondary: #cbd5e1;
-  }
+// The site is designed as a single, polished light theme. Its cards and
+// sections use hardcoded light backgrounds, so honoring the OS dark-mode
+// preference only flipped text colors and made copy invisible on those light
+// surfaces. Lock the site to its intended light design for every user so it
+// renders consistently and remains readable regardless of OS dark mode.
+:root {
+  color-scheme: light;
+  --color-light-bg: #f8fafc;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
 }
 @mixin list-spacing {
   margin: 0.3em 0;

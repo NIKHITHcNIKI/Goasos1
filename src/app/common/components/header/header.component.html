@@ -1,41 +1,43 @@
 <header class="site-header">
-    <a routerLink="/" class="logo-link" aria-label="GOASOS Home">
+    <a routerLink="/" class="logo-link" aria-label="GOASOS Home" (click)="CloseHeaderMenu()">
         <img src="/images/logo.jpg" alt="GOASOS" class="logo-img">
     </a>
 
-    <nav #nav class="site-nav">
+    <div class="nav-backdrop" [class.show]="menuOpen" (click)="CloseHeaderMenu()"></div>
+
+    <nav #nav class="site-nav" [class.show]="menuOpen">
         <ul>
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a routerLink="/">Home</a>
+                <a routerLink="/" (click)="CloseHeaderMenu()">Home</a>
             </li>
             <li routerLinkActive="active">
-                <a routerLink="/about-us">About</a>
+                <a routerLink="/about-us" (click)="CloseHeaderMenu()">About</a>
             </li>
-            <li class="has-dropdown">
-                <button type="button" [matMenuTriggerFor]="productsMenu" class="dropdown-trigger">
+            <li class="has-dropdown" [class.open]="solutionsOpen">
+                <button type="button" class="dropdown-trigger" (click)="ToggleSolutions($event)" [attr.aria-expanded]="solutionsOpen">
                     Solutions
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
-                <mat-menu #productsMenu="matMenu" class="products-menu">
-                    <a mat-menu-item routerLink="/smart-home-automation-solutions">Home Automation</a>
-                    <a mat-menu-item routerLink="/smart-office-automation-solutions">Office Automation</a>
-                    <a mat-menu-item routerLink="/industrial-automation-solutions">Industrial Automation</a>
-                    <a mat-menu-item routerLink="/cctv-video-surveillance-security-cameras">Security & CCTV</a>
-                    <a mat-menu-item routerLink="/space-saving-furniture-solutions">Space-Saving Furniture</a>
-                    <a mat-menu-item routerLink="/solar-energy-solutions">Solar Energy</a>
-                </mat-menu>
+                <ul class="dropdown-panel">
+                    <li><a routerLink="/smart-home-automation-solutions" (click)="CloseHeaderMenu()">Home Automation</a></li>
+                    <li><a routerLink="/smart-office-automation-solutions" (click)="CloseHeaderMenu()">Office Automation</a></li>
+                    <li><a routerLink="/industrial-automation-solutions" (click)="CloseHeaderMenu()">Industrial Automation</a></li>
+                    <li><a routerLink="/cctv-video-surveillance-security-cameras" (click)="CloseHeaderMenu()">Security &amp; CCTV</a></li>
+                    <li><a routerLink="/space-saving-furniture-solutions" (click)="CloseHeaderMenu()">Space-Saving Furniture</a></li>
+                    <li><a routerLink="/solar-energy-solutions" (click)="CloseHeaderMenu()">Solar Energy</a></li>
+                </ul>
             </li>
             <li routerLinkActive="active">
-                <a routerLink="/software-consulting-services">Consulting</a>
+                <a routerLink="/software-consulting-services" (click)="CloseHeaderMenu()">Consulting</a>
             </li>
             <li routerLinkActive="active">
-                <a routerLink="/contact-us">Contact</a>
+                <a routerLink="/contact-us" (click)="CloseHeaderMenu()">Contact</a>
             </li>
         </ul>
-        <a routerLink="/contact-us" class="nav-cta">Get a Quote</a>
+        <a routerLink="/contact-us" class="nav-cta" (click)="CloseHeaderMenu()">Get a Quote</a>
     </nav>
 
-    <button class="ham" (click)="ShowHeaderMenu()" aria-label="Open menu" [attr.aria-expanded]="menuOpen">
+    <button class="ham" [class.active]="menuOpen" (click)="ToggleHeaderMenu()" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'" [attr.aria-expanded]="menuOpen">
         <span></span>
         <span></span>
         <span></span>

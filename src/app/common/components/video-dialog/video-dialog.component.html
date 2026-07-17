@@ -19,10 +19,23 @@
   <ng-container *ngIf="ser.VideoThumbnails$ | async as thumbnails">
     <div class="footer" *ngIf="thumbnails.length > 1">
       <ul>
-        <li *ngFor="let video of thumbnails; let i = index">
-          <a (click)="ser.PlayVideoByIndex(i)" href="javascript:void(0)">
+        <li
+          *ngFor="let video of thumbnails; let i = index"
+          [class.active]="(ser.CurrentVideoIndex$ | async) === i"
+        >
+          <a
+            class="video-thumb"
+            (click)="ser.PlayVideoByIndex(i)"
+            href="javascript:void(0)"
+            [attr.aria-label]="'Play ' + video.title"
+          >
             <img [src]="video.src" [alt]="video.alt" />
-            <span>{{ video.title }}</span>
+            <span class="play-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </span>
+            <span class="thumb-title">{{ video.title }}</span>
           </a>
         </li>
       </ul>

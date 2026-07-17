@@ -33,6 +33,27 @@ header.site-header {
         }
     }
 
+    // Dimmed backdrop behind the mobile drawer
+    .nav-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(8, 27, 58, 0.55);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        z-index: 150;
+
+        @media (max-width: $breaking-point) {
+            display: block;
+        }
+
+        &.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
     .site-nav {
         display: flex;
         align-items: center;
@@ -41,20 +62,23 @@ header.site-header {
         @media (max-width: $breaking-point) {
             position: fixed;
             top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100vh;
+            right: 0;
+            width: min(85vw, 320px);
+            height: 100dvh;
             flex-direction: column;
             align-items: stretch;
             gap: 0;
-            padding: 5rem 1.5rem 2rem;
+            padding: 5.5rem 1.25rem 2rem;
             background: $dark;
             box-shadow: -8px 0 40px rgba(0, 0, 0, 0.3);
-            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 200;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
 
             &.show {
-                right: 0;
+                transform: translateX(0);
             }
         }
 
@@ -74,11 +98,14 @@ header.site-header {
             }
 
             > li {
+                position: relative;
+
                 > a,
                 .dropdown-trigger {
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
+                    width: 100%;
                     padding: 0.7em 1.2em;
                     color: $dark;
                     text-decoration: none;
@@ -91,17 +118,20 @@ header.site-header {
                     cursor: pointer;
                     font-family: 'Inter', sans-serif;
                     letter-spacing: 0.3px;
+                    text-align: left;
 
                     @media (max-width: $breaking-point) {
                         color: rgba(255, 255, 255, 0.9);
                         padding: 0.9em 1.2em;
                         font-size: 1rem;
+                        justify-content: space-between;
                     }
 
                     svg {
                         transition: transform 0.3s ease;
                         width: 18px;
                         height: 18px;
+                        flex-shrink: 0;
                     }
                 }
 
@@ -109,15 +139,11 @@ header.site-header {
                 .dropdown-trigger:hover {
                     color: $primary;
                     background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.08));
-                    transform: translateY(-1px);
-
-                    svg {
-                        transform: translateY(2px);
-                    }
 
                     @media (max-width: $breaking-point) {
                         background: rgba(255, 255, 255, 0.1);
                         color: $secondary;
+                        transform: none;
                     }
                 }
 
@@ -126,6 +152,105 @@ header.site-header {
                     color: $primary;
                     font-weight: 600;
                     background: rgba(37, 99, 235, 0.08);
+
+                    @media (max-width: $breaking-point) {
+                        color: $secondary;
+                        background: rgba(255, 255, 255, 0.08);
+                    }
+                }
+
+                // ---- Solutions dropdown ----
+                &.has-dropdown {
+                    .dropdown-panel {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+
+                        li a {
+                            display: block;
+                            text-decoration: none;
+                            font-family: 'Inter', sans-serif;
+                            transition: all 0.25s ease;
+                        }
+                    }
+
+                    // Desktop: floating panel on hover / open
+                    @media (min-width: ($breaking-point + 1px)) {
+                        .dropdown-panel {
+                            position: absolute;
+                            top: calc(100% + 8px);
+                            left: 0;
+                            min-width: 240px;
+                            background: #fff;
+                            border-radius: 12px;
+                            box-shadow: 0 16px 40px rgba(8, 27, 58, 0.16);
+                            border: 1px solid rgba(37, 99, 235, 0.08);
+                            padding: 0.5rem;
+                            opacity: 0;
+                            visibility: hidden;
+                            transform: translateY(8px);
+                            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                            z-index: 210;
+
+                            li a {
+                                padding: 0.65em 0.9em;
+                                border-radius: 8px;
+                                color: $dark;
+                                font-size: 0.92rem;
+                                font-weight: 500;
+
+                                &:hover {
+                                    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(0, 184, 255, 0.08));
+                                    color: $primary;
+                                }
+                            }
+                        }
+
+                        &:hover,
+                        &.open {
+                            .dropdown-panel {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: translateY(0);
+                            }
+
+                            .dropdown-trigger svg {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    // Mobile: inline accordion
+                    @media (max-width: $breaking-point) {
+                        .dropdown-panel {
+                            max-height: 0;
+                            overflow: hidden;
+                            transition: max-height 0.35s ease;
+                            padding-left: 0.75rem;
+
+                            li a {
+                                padding: 0.7em 1.2em;
+                                color: rgba(255, 255, 255, 0.75);
+                                font-size: 0.95rem;
+                                border-radius: 8px;
+
+                                &:hover {
+                                    color: $secondary;
+                                    background: rgba(255, 255, 255, 0.08);
+                                }
+                            }
+                        }
+
+                        &.open {
+                            .dropdown-panel {
+                                max-height: 480px;
+                            }
+
+                            .dropdown-trigger svg {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -167,6 +292,7 @@ header.site-header {
         display: none;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 6px;
         width: 48px;
         height: 48px;
@@ -177,6 +303,7 @@ header.site-header {
         z-index: 201;
         padding: 12px;
         transition: all 0.3s ease;
+        position: relative;
 
         @media (max-width: $breaking-point) {
             display: flex;
@@ -193,6 +320,24 @@ header.site-header {
             background: $dark;
             border-radius: 2px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        // Animate into an X while the drawer is open
+        &.active {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(0, 184, 255, 0.12));
+
+            > span:nth-child(1) {
+                transform: translateY(8.5px) rotate(45deg);
+            }
+
+            > span:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            > span:nth-child(3) {
+                transform: translateY(-8.5px) rotate(-45deg);
+            }
         }
     }
 }
