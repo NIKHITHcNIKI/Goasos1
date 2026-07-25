@@ -80,13 +80,10 @@ div.wrapper {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 5px;
                 user-select: none;
                 cursor: pointer;
                 > mat-icon {
                     color: black;
-                }
-                > span {
                 }
                 > svg {
                     height: 1em;
